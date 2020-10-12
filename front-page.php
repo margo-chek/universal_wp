@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<main>
+<main class="front-page-header">
     <div class="container">
         <div class="hero">
             <div class="left">
@@ -13,7 +13,7 @@
                 </a>
                 <div class="post-text">
                     <a href="#" class="category-name">Рубрики</a>
-                    <h2 сlass="post-title">Название поста</h2>
+                    <h2 class="post-title">Название поста</h2>
                     <a href="#" class="more">Читать далее</a>
                 </div>
             </div>
@@ -21,24 +21,24 @@
                 <h3 class="recommend">Рекомендуем</h3>
                 <ul class="posts-list">
                     <li class="post">
-                        <span class="category-name">Категория</span>
-                        <h4 class="post-title">Название поста в две строки</h4>
+                        <span class="recommend-category-name">Категория</span>
+                        <h4 class="recommend-post-title">Название поста в две строки</h4>
                     </li>
                     <li class="post">
-                        <span class="category-name">Категория</span>
-                        <h4 class="post-title">Название поста в две строки</h4>
+                        <span class="recommend-category-name">Категория</span>
+                        <h4 class="recommend-post-title">Название поста в две строки</h4>
                     </li>
                     <li class="post">
-                        <span class="category-name">Категория</span>
-                        <h4 class="post-title">Название поста в две строки</h4>
+                        <span class="recommend-category-name">Категория</span>
+                        <h4 class="recommend-post-title">Название поста в две строки</h4>
                     </li>
                     <li class="post">
-                        <span class="category-name">Категория</span>
-                        <h4 class="post-title">Название поста в две строки</h4>
+                        <span class="recommend-category-name">Категория</span>
+                        <h4 class="recommend-post-title">Название поста в две строки</h4>
                     </li>
                     <li class="post">
-                        <span class="category-name">Категория</span>
-                        <h4 class="post-title">Название поста в две строки</h4>
+                        <span class="recommend-category-name">Категория</span>
+                        <h4 class="recommend-post-title">Название поста в две строки</h4>
                     </li>
                 </ul>
             </div>

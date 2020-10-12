@@ -33,7 +33,7 @@ function enqueue_universal_style() {
     wp_enqueue_style( 'universal-theme-style', get_template_directory_uri() . '/assets/css/universal-theme.css' , 'style', time());
     // выполнить universal-theme.css сразу ПОСЛЕ style.css
     // time() - чтобы не кешировались стили
-    wp_enqueue_style('Roboto-Slab', 'https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
+    wp_enqueue_style('Roboto-Slab', '//fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
     // подключаем шрифт из https://fonts.google.com
 }
 add_action( 'wp_enqueue_scripts', 'enqueue_universal_style' ); // хук
