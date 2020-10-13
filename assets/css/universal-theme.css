@@ -93,8 +93,25 @@ body {
   cursor: pointer;
 }
 
+.home {
+  background-color: #E5E5E5;
+}
+
 .front-page-header {
   background-color: #262D33;
+  position: relative;
+  padding-top: 30px;
+}
+
+.front-page-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #E5E5E5;
+  width: 100%;
+  height: 20%;
+  z-index: 0;
 }
 
 .hero {
@@ -102,6 +119,9 @@ body {
   overflow: hidden;
   border-radius: 10px;
   min-height: 570px;
+  background-color: #ffffff;
+  position: relative;
+  z-index: 1;
 }
 
 .hero .left {
@@ -113,7 +133,7 @@ body {
   justify-content: space-between;
 }
 
-.hero .left::after {
+.hero .left::before {
   content: '';
   position: absolute;
   width: 100%;
@@ -121,7 +141,7 @@ body {
   top: 0;
   left: 0;
   background-color: rgba(64, 48, 61, 0.35);
-  z-index: -1;
+  z-index: 1;
 }
 
 .hero .left .post-thumb {
@@ -130,7 +150,7 @@ body {
   left: 0;
   bottom: 0;
   right: 0;
-  z-index: -2;
+  z-index: 0;
   height: 100%;
 }
 
@@ -138,6 +158,8 @@ body {
   display: flex;
   align-items: center;
   text-decoration: none;
+  position: relative;
+  z-index: 2;
 }
 
 .hero .left .author-bio {
@@ -159,6 +181,11 @@ body {
   width: 45px;
   height: 45px;
   border-radius: 50%;
+}
+
+.hero .left .post-text {
+  position: relative;
+  z-index: 2;
 }
 
 .hero .left .post-text .category-name {
@@ -222,7 +249,7 @@ body {
   max-height: 100px;
 }
 
-.hero .right .posts-list .post:nth-child(even) {
+.hero .right .posts-list .post:hover {
   background-color: #F5F5F5;
 }
 

@@ -1,10 +1,26 @@
+.home
+	background-color: #E5E5E5
 .front-page-header
 	background-color: #262D33
+	position: relative
+	padding-top: 30px
+	&::after
+		content: ''
+		position: absolute
+		bottom: 0
+		left: 0
+		background-color: #E5E5E5
+		width: 100%
+		height: 20%
+		z-index: 0
 .hero
 	display: flex
 	overflow: hidden
 	border-radius: 10px
 	min-height: 570px
+	background-color: #ffffff
+	position: relative
+	z-index: 1
 	.left
 		flex-basis: 75%
 		position: relative
@@ -12,7 +28,7 @@
 		display: flex
 		flex-direction: column
 		justify-content: space-between
-		&::after
+		&::before
 			content: ''
 			position: absolute
 			width: 100%
@@ -20,19 +36,21 @@
 			top: 0
 			left: 0
 			background-color: rgba(64, 48, 61, 0.35)
-			z-index: -1
+			z-index: 1
 		.post-thumb
 			position: absolute
 			top: 0
 			left: 0
 			bottom: 0
 			right: 0
-			z-index: -2
+			z-index: 0
 			height: 100%
 		.author
 			display: flex
 			align-items: center
 			text-decoration: none
+			position: relative
+			z-index: 2
 			&-bio
 				margin-left: 10px
 			&-name
@@ -47,6 +65,8 @@
 				height: 45px
 				border-radius: 50%
 		.post-text
+			position: relative
+			z-index: 2
 			.category
 				&-name
 					color: #4592FF
@@ -96,16 +116,14 @@
 					border-top: 1px solid #D9DADB
 					min-height: 99px
 					max-height: 100px
-					&:nth-child(even)
+					&:hover
 						background-color: #F5F5F5
-
 					.recommend-category-name
 						font-weight: 900
 						font-size: 12px
 						line-height: 15px
 						letter: 0.5px
 						text-transform: uppercase
-
 					.recommend-post-title
 						font-size: 14px
 						line-height: 20px
