@@ -8,6 +8,9 @@ if ( ! function_exists( 'universal_theme_setup' ) ) :
         // добавим тега тайтл - title-tag
         add_theme_support( 'title-tag' );
 
+        // возможность добавления миниатюр - разрешаем добавлять
+        add_theme_support( 'post-thumbnails', array( 'post' ) ); // Только для post
+
         // добавление пользовательского логотипа
         add_theme_support( 'custom-logo', [
             // 'height'      => 190,

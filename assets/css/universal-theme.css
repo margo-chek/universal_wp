@@ -101,17 +101,7 @@ body {
   background-color: #262D33;
   position: relative;
   padding-top: 30px;
-}
-
-.front-page-header::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background-color: #E5E5E5;
-  width: 100%;
-  height: 20%;
-  z-index: 0;
+  height: 475px;
 }
 
 .hero {
@@ -188,7 +178,12 @@ body {
   z-index: 2;
 }
 
-.hero .left .post-text .category-name {
+.hero .left .post-text .post-categories {
+  padding: 0;
+  margin: 0;
+}
+
+.hero .left .post-text .post-categories a {
   color: #4592FF;
   text-transform: uppercase;
   font-weight: 900;
@@ -209,6 +204,7 @@ body {
   font-family: "Roboto Slab";
   margin-top: 20px;
   margin-bottom: 50px;
+  max-width: 590px;
 }
 
 .hero .left .post-text .more {
@@ -253,12 +249,26 @@ body {
   background-color: #F5F5F5;
 }
 
-.hero .right .posts-list .post .recommend-category-name {
+.hero .right .posts-list .post-categories {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.hero .right .posts-list .post-categories a {
   font-weight: 900;
   font-size: 12px;
   line-height: 15px;
   letter: 0.5px;
   text-transform: uppercase;
+  text-decoration: none;
+}
+
+.hero .right .posts-list .post-permalink {
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 20px;
+  color: #4B5157;
 }
 
 .hero .right .posts-list .post .recommend-post-title {
