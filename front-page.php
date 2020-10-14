@@ -95,7 +95,7 @@
                     } else {
                     ?> <p>Постов нет</p> <?php
                     }
-                    wp_reset_postdata(); // Сбрасываем $post
+                    wp_reset_postdata(); // сбрасываем $post
                     ?>
 
                 </ul>
