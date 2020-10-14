@@ -40,3 +40,15 @@ function enqueue_universal_style() {
     // подключаем шрифт из https://fonts.google.com
 }
 add_action( 'wp_enqueue_scripts', 'enqueue_universal_style' ); // хук
+
+## отключаем создание миниатюр файлов для указанных размеров
+add_filter( 'intermediate_image_sizes', 'delete_intermediate_image_sizes' );
+function delete_intermediate_image_sizes( $sizes ){
+	// размеры которые нужно удалить
+	return array_diff( $sizes, [
+		'medium_large',
+		'large',
+		'1536x1536',
+		'2048x2048',
+	] );
+}
