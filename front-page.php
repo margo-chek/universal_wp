@@ -88,7 +88,7 @@
                             <li class="post">
                                 <?php the_category(); ?>
                                 <a class="post-permalink" href="<?php echo get_the_permalink(); ?>">
-                                    <h4 class="recommend-post-title"><?php the_title(); ?></h4>
+                                    <h4 class="recommend-post-title"><?php echo mb_strimwidth(get_the_title(), 0, 56, '...'); ?></h4>
                                 </a>
                             </li>
                         <?php 
@@ -121,7 +121,7 @@
                 <!-- выводим записи -->
                 <li class="article-item">
                     <a class="article-permalink" href="<?php echo get_the_permalink(); ?>">
-                        <h4 class="article-title"><?php the_title(); ?></h4>
+                        <h4 class="article-title"><?php trim_title_chars(68, '...'); ?></h4>
                     </a>
                     <img width="65" height="65" src="<?php echo get_the_post_thumbnail_url( null, 'thumbnail' ); ?>" alt="">
                 </li>

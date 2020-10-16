@@ -52,3 +52,12 @@ function delete_intermediate_image_sizes( $sizes ){
 		'2048x2048',
 	] );
 }
+
+// обрезает заголовок на $count - символов, в конце подставляет $after
+// в коде вместо <?php the_title();  нужно писать н-р, <?php trim_title_chars(30, '...');
+function trim_title_chars($count, $after) {
+	$title = get_the_title();
+	if (mb_strlen($title) > $count) $title = mb_substr($title, 0, $count);
+	else $after = '';
+	echo $title . $after;
+}
