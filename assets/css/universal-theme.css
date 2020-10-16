@@ -142,6 +142,7 @@ body {
   right: 0;
   z-index: 0;
   height: 100%;
+  object-fit: cover;
 }
 
 .hero .left .author {
@@ -281,4 +282,66 @@ body {
   font-size: 14px;
   align-items: center;
   color: #4B5157;
+}
+
+.hero .right .posts-list .post .recommend-post-item-title {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  margin-bottom: 0;
+  margin-top: 8px;
+  min-height: 40px;
+  font-size: 14px;
+  align-items: center;
+  color: #4B5157;
+}
+
+.article-list {
+  margin: 0;
+  margin-top: 180px;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  background: #30363D;
+  border-radius: 10px;
+}
+
+.article-item {
+  width: 25%;
+  display: flex;
+  align-items: center;
+  padding: 30px 25px 35px;
+  position: relative;
+}
+
+.article-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  height: 70%;
+  width: 1px;
+  background: #4B5157;
+  display: block;
+}
+
+.article-permalink {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: #FFFFFF;
+  margin-right: 15px;
+}
+
+.article-permalink:hover {
+  color: #fff;
+}
+
+.article-title {
+  margin: 0;
+  font-weight: 900;
+  font-size: 14px;
+  line-height: 20px;
 }

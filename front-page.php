@@ -26,7 +26,7 @@
                     'numberposts'   => 1, // берем из бд максимум 5 (1) последних постов
                     // 'offset'        => 1, // отступ от 1-го поста - например, публикуем начиная со 2-го
                     // 'category'      => 1, // ID категории, из которой получаем посты
-                    'category_name' => 'javascript', // строка - имя или слаг (ярлык) категории
+                    'category_name' => 'html', // строка - имя или слаг (ярлык) категории
                     // 'orderby' => 'date', // сортировать по к-либо параметрам, н-р, по дате
                     // 'order' => 'DESC', // в каком направлении сортировать orderby: ASC - по порядку (а,б,в), DESC - в обратном порядке
                 ]);
@@ -78,6 +78,7 @@
                     $myposts = get_posts([ 
                         'numberposts'   => 5, // берем из бд максимум 5 последних постов
                         'offset'        => 1, // пропускаем последний пост, начинаем выводить с предпоследнего
+                        'category_name' => 'javascript, css, js, chrome, html, web-design', // строка - имя или слаг (ярлык) категории
                     ]);              
                     if( $myposts ){ // проверяем, есть ли вообще посты
                         foreach( $myposts as $post ){ // если есть - запускаем цикл
@@ -104,5 +105,35 @@
 
     </div>
 </main>
+<div class="container">
+    <ul class="article-list">
+
+        <?php
+        global $post; // объявляем глобальную переменную
+        $myposts = get_posts([ 
+            'numberposts'   => 4, // берем из бд максимум 4 последних постов
+            'category_name' => 'work, article', // строка - имя или слаг (ярлык) категории
+        ]);              
+        if( $myposts ){ // проверяем, есть ли вообще посты
+            foreach( $myposts as $post ){ // если есть - запускаем цикл
+                setup_postdata( $post ); // устанавливаем данные
+                ?>
+                <!-- выводим записи -->
+                <li class="article-item">
+                    <a class="article-permalink" href="<?php echo get_the_permalink(); ?>">
+                        <h4 class="article-title"><?php the_title(); ?></h4>
+                    </a>
+                    <img width="65" height="65" src="<?php echo get_the_post_thumbnail_url( null, 'thumbnail' ); ?>" alt="">
+                </li>
+            <?php 
+            }
+        } else {
+        ?> <p>Постов нет</p> <?php
+        }
+        wp_reset_postdata(); // сбрасываем $post
+        ?>
+
+    </ul>                 
+</div>
 
 <?php get_footer(); ?>
