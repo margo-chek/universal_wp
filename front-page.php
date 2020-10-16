@@ -55,7 +55,7 @@
                         </a>
                         <div class="post-text">
                             <?php the_category(); ?>
-                            <h2 class="post-title"><?php the_title(); ?></h2>
+                            <h2 class="post-title"><?php trim_title_words(5, '...'); ?></h2>
                             <a href="<?php echo get_the_permalink()?>" class="more">Читать далее</a>
                         </div>
 
