@@ -139,7 +139,7 @@
         global $post;
         // формируем запрос в БД с помощью переменной $query
         $query = new WP_Query( [
-            'posts_per_page' => 5, // получаем 5 постов
+            'posts_per_page' => 7, // получаем 7 постов
             // 'orderby'        => 'comment_count',
         ] );
 
@@ -216,7 +216,7 @@
                         <li class="article-grid-item article-grid-item-3">
                             <a href="<?php the_permalink(); ?>" class="article-grid-permalink">
                                 <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="" class="article-thumb">       
-                                <h4 class="article-grid-title"><?php echo mb_strimwidth(get_the_title(), 0, 56, '...'); ?></h4>
+                                <h4 class="article-grid-title"><?php echo mb_strimwidth(get_the_title(), 0, 40, '...'); ?></h4>
                             </a>
                         </li>
                         <?php 
@@ -226,11 +226,9 @@
                         ?>
                         <li class="article-grid-item article-grid-item-default">
                             <a href="<?php the_permalink(); ?>" class="article-grid-permalink">      
-                                <h4 class="article-grid-title"><?php echo mb_strimwidth(get_the_title(), 0, 56, '...'); ?></h4>
-                                <p class="article-grid-excerpt"><?php echo mb_strimwidth (get_the_excerpt(), 0, 120, '...'); ?></p>
-                                <span class="article-date"><?php the_time( 'j F' ); ?></span> 
-                                <!-- для вывода даты всех постов лучше использовать the_time( 'j F Y' );
-                                для вывода даты только у первого поста the_date( 'j F Y' ); -->
+                                <h4 class="article-grid-title"><?php echo the_title();?></h4>
+                                <p class="article-grid-excerpt"><?php echo mb_strimwidth (get_the_excerpt(), 0, 80, '...'); ?></p>
+                                <span class="article-date"><?php the_time( 'j F' ); ?></span>
                             </a>
                         </li>
                         <?php 

@@ -188,5 +188,59 @@
                         margin-left: 5px
             &-3
                 grid-area: 2 / 1 / 4 / 2
+                .article
+                    &-grid
+                        &-permalink
+                        &-title
+                            font-family: Roboto Slab
+                            font-style: normal
+                            font-weight: bold
+                            font-size: 16px
+                            line-height: 25px
+                            max-width: 213px
+                            color: #262D33
+                            margin: 15px 25px 30px
+                            height: 25%
+                    &-thumb
+                        height: 73%
+                        width: 100%
+                        object-fit: cover
             &-default
                 // grid-area: 2 / 2 / 3 / 3
+                .article
+                    &-grid
+                        &-permalink
+                            display: flex
+                            flex-direction: column
+                            justify-content: space-between
+                            align-items: flex-start
+                            padding: 25px 25px 30px
+                        &-title
+                            font-family: Roboto Slab
+                            font-style: normal
+                            font-weight: bold
+                            font-size: 16px
+                            line-height: 25px
+                            max-width: 213px
+                            color: #262D33
+                            white-space: nowrap
+                            overflow: hidden
+                            text-overflow: ellipsis
+                            margin: 0
+                        &-excerpt
+                            max-width: 238px
+                            font-family: Lato
+                            font-size: 14px
+                            line-height: 20px
+                            font-weight: normal
+                            color: #4B5157
+                            word-wrap: break-word
+                            max-height: 60px
+                            min-height: 60px
+                            margin: 5px 0 10px
+                    &-date
+                        font-family: Lato
+                        font-size: 12px
+                        line-height: 15px
+                        font-weight: normal
+                        color: #939699
