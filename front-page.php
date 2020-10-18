@@ -176,7 +176,7 @@
                     case '2': // выводим второй пост
                         ?>
                         <li class="article-grid-item article-grid-item-2">
-                            <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="" class="article-grid-thumb">
+                            <!-- <img src="<?php //echo get_the_post_thumbnail_url(); ?>" alt="" class="article-grid-thumb"> -->
                             <a href="<?php the_permalink(); ?>" class="article-grid-permalink">
                                 <span class="tag">
                                     <?php $posttags = get_the_tags(); // получаем все теги
