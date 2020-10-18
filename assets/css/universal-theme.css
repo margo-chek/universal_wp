@@ -339,6 +339,10 @@ body {
   color: #fff;
 }
 
+.article-permalink-visited {
+  color: #6E99AE;
+}
+
 .article-title {
   margin: 0;
   font-weight: 900;
