@@ -350,6 +350,12 @@ body {
   line-height: 20px;
 }
 
+.main-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
 .article-grid {
   max-width: 850px;
   margin: 30px 0;
@@ -652,4 +658,58 @@ body {
   line-height: 15px;
   font-weight: normal;
   color: #939699;
+}
+
+.sidebar-front-page {
+  margin: 30px 0 0 30px;
+  max-width: 263px;
+  height: 100%;
+}
+
+.widget-downloader {
+  background: #3BBDC4;
+  border-radius: 10px;
+  color: #FFFFFF;
+  padding: 25px 25px 65px;
+  position: relative;
+}
+
+.widget-downloader .widget-title {
+  margin-top: 0;
+  font-family: Roboto Slab;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 25px;
+}
+
+.widget-downloader .widget-link {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: 12px 0 13px;
+  border-top: 1px solid rgba(255, 255, 255, 0.75);
+  color: #ffffff;
+  text-decoration: none;
+  font-family: "Lato Black", sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.widget-downloader .widget-link-icon {
+  margin-right: 10px;
+}
+
+.widget-downloader .description {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  color: #C1F4F5;
+  margin: 0;
 }
