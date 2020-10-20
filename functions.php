@@ -90,10 +90,10 @@ class Downloader_Widget extends WP_Widget {
 			echo $args['before_title'] . $title . $args['after_title'];
         }
         if ( ! empty( $description ) ) {
-			echo '<p>' . $description . '</p>';
+			echo '<p class="description">' . $description . '</p>';
         }
         if ( ! empty( $link ) ) {
-            echo '<a class="widget-link" href="' . $link . '">
+            echo '<a target="_blank" class="widget-link" href="' . $link . '">
             <img class="widget-link-icon" src="' . get_template_directory_uri() . '/assets/images/download.svg">
             Скачать</a>';
 		}
