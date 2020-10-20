@@ -491,13 +491,9 @@ body {
   z-index: 0;
 }
 
-.article-grid-item-2 ::before {
+.article-grid-item-2::before {
   content: '';
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
   z-index: 0;
   background: linear-gradient(0deg, rgba(64, 48, 61, 0.35), rgba(64, 48, 61, 0.35));
   width: 100%;
