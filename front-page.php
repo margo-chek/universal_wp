@@ -78,7 +78,7 @@
                     $myposts = get_posts([ 
                         'numberposts'   => 5, // берем из бд максимум 5 последних постов
                         'offset'        => 1, // пропускаем последний пост, начинаем выводить с предпоследнего
-                        'category_name' => 'javascript, css, js, chrome, html, web-design', // строка - имя или слаг (ярлык) категории
+                        'category_name' => 'javascript, css, js, html, web-design', // строка - имя или слаг (ярлык) категории
                     ]);              
                     if( $myposts ){ // проверяем, есть ли вообще посты
                         foreach( $myposts as $post ){ // если есть - запускаем цикл

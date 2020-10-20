@@ -181,12 +181,12 @@ add_action( 'widgets_init', 'register_downloader_widget' );
 
 // правильный способ подключить стили и скрипты
 function enqueue_universal_style() {
+	wp_enqueue_style('Roboto-Slab', '//fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
+    // подключаем шрифт из https://fonts.google.com
     wp_enqueue_style( 'style', get_stylesheet_uri() );
     wp_enqueue_style( 'universal-theme-style', get_template_directory_uri() . '/assets/css/universal-theme.css' , 'style', time());
     // выполнить universal-theme.css сразу ПОСЛЕ style.css
-    // time() - чтобы не кешировались стили
-    wp_enqueue_style('Roboto-Slab', '//fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
-    // подключаем шрифт из https://fonts.google.com
+    // time() - чтобы не кешировались стили  
 }
 add_action( 'wp_enqueue_scripts', 'enqueue_universal_style' ); // хук
 
@@ -200,6 +200,16 @@ function delete_intermediate_image_sizes( $sizes ){
 		'1536x1536',
 		'2048x2048',
 	] );
+}
+
+// изменяем настройки облака тегов
+add_filter( 'widget_tag_cloud_args', 'edit_widget_tag_cloud_args' );
+function edit_widget_tag_cloud_args($args) {
+	$args['unit'] = 'px'; // единицы измерения
+	$args['smallest'] = '14'; // минимальный размер
+	$args['largest'] = '14'; // максимальный размер
+	$args['number'] = '13'; // количество выводимых тегов
+	return $args;
 }
 
 // обрезает заголовок на $count - символов, в конце подставляет $after

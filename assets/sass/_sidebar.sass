@@ -4,6 +4,12 @@
 		max-width: 263px
 		height: 100%
 .widget
+	background-color: #fff
+	border-radius: 10px
+	&-title
+		padding: 20px 25px
+		border-bottom: 1px solid #D9DADB
+		text-transform: uppercase
 	&-downloader
 		background: #3BBDC4 url('../images/file.svg') no-repeat top 22px right 24px
 		border-radius: 10px
@@ -13,11 +19,14 @@
 		.widget
 			&-title
 				margin-top: 0
-				font-family: Roboto Slab
+				font-family: "Roboto Slab"
 				font-style: normal
 				font-weight: bold
 				font-size: 16px
 				line-height: 25px
+				border: none
+				text-transform: none
+				padding: 0
 			&-link
 				position: absolute
 				bottom: 0
@@ -36,10 +45,28 @@
 				&-icon
 					margin-right: 10px
 		.description
-			font-family: Lato
+			font-family: "Lato Regular", sans-serif
 			font-style: normal
 			font-weight: normal
 			font-size: 14px
 			line-height: 20px
 			color: #C1F4F5
 			margin: 0
+	.tagcloud
+		display: flex
+		align-items: center
+		justify-content: flex-start
+		flex-wrap: wrap
+		padding: 25px 25px 30px
+	.tag-cloud-link
+		text-decoration: none
+		padding: 5px 15px
+		border: 1px solid #D9DADB
+		box-sizing: border-box
+		border-radius: 5px
+		margin: 0 10px 15px 0
+		font-family: "Lato Black", sans-serif
+		font-size: 14px
+		line-height: 20px
+		color: #262D33
+		text-transform: capitalize
