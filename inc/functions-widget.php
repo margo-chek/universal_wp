@@ -25,7 +25,7 @@ class Downloader_Widget extends WP_Widget {
 	/**
 	 * Вывод виджета во Фронт-энде
 	 *
-	 * @param array $args     аргументы виджета.
+	 * @param array $args аргументы виджета.
 	 * @param array $instance сохраненные данные из настроек
 	 */
 	function widget( $args, $instance ) {
@@ -140,7 +140,7 @@ class Social_Icons_Widget extends WP_Widget {
 		parent::__construct(
 			'social_icons_widget', // ID виджета, если не указать (оставить ''), то ID будет равен названию класса в нижнем регистре: social_icons_widget
 			'Социальные сети',
-			array( 'description' => 'Файлы для скачивания', 'classname' => 'widget-social_icons', )
+			array( 'description' => 'название соц.сети', 'classname' => 'widget-social-icons', )
 		);
 
 		// скрипты/стили виджета, только если он активен
@@ -153,28 +153,36 @@ class Social_Icons_Widget extends WP_Widget {
 	/**
 	 * Вывод виджета во Фронт-энде
 	 *
-	 * @param array $args     аргументы виджета.
+	 * @param array $args аргументы виджета.
 	 * @param array $instance сохраненные данные из настроек
 	 */
 	function widget( $args, $instance ) {
-        // $title = apply_filters( 'widget_title', $instance['title'] ); // упростим
-        $title = $instance['title'];
-        $description = $instance['description'];
-        $link = $instance['link'];
+		$title_social_icons = $instance['title_social_icons'];
+        // $social_network_name = $instance['social_network_name'];
+		$link_facebook = $instance['link_facebook'];
+		$link_twitter = $instance['link_twitter'];
+		$link_youtube = $instance['link_youtube'];
+		$link_instagram = $instance['link_instagram'];
 
+		// echo '<div class="social-network-block">';
 		echo $args['before_widget'];
-		if ( ! empty( $title ) ) {
-			echo $args['before_title'] . $title . $args['after_title'];
+		if ( ! empty( $title_social_icons ) ) {
+			echo $args['before_title'] . $title_social_icons . $args['after_title'];
         }
-        if ( ! empty( $description ) ) {
-			echo '<p class="description">' . $description . '</p>';
+		if ( ! empty ( $link_facebook )) {
+			echo '<a href=' . $link_facebook . ' class="social-network-button facebook"></a>';
         }
-        if ( ! empty( $link ) ) {
-            echo '<a target="_blank" class="widget-link" href="' . $link . '">
-            <img class="widget-link-icon" src="' . get_template_directory_uri() . '/assets/images/download.svg">
-            Скачать</a>';
+        if ( ! empty ( $link_twitter )) {
+			echo '<a href=' . $link_twitter . ' class="social-network-button twitter"></a>';
+        }
+        if ( ! empty ( $link_youtube )) {
+			echo '<a href=' . $link_youtube . ' class="social-network-button youtube"></a>';
 		}
-		echo $args['after_widget'];
+		 if ( ! empty ( $link_instagram )) {
+			echo '<a href=' . $link_instagram . ' class="social-network-button instagram"></a>';
+        }
+        echo $args['after_widget'];
+        // echo '</div>';
 	}
 
 	/**
@@ -183,22 +191,53 @@ class Social_Icons_Widget extends WP_Widget {
 	 * @param array $instance сохраненные данные из настроек
 	 */
 	function form( $instance ) {
-        $title = @ $instance['title'] ?: 'Наши соцсети'; // Заголовок по умолчанию
-        $description = @ $instance['description'] ?: 'текст'; // добавляем по подобию вывод описания
-        $link = @ $instance['link'] ?: 'http://yandex.ru/'; // добавляем вывод ссылки
+		$title_social_icons = @ $instance['title_social_icons'] ?: 'Наши соцсети'; // Заголовок по умолчанию
+        // $social_network_name = @ $instance['social_network_name'] ?: 'social_network_name'; // название соцсети
+		$link_facebook = @ $instance['link_facebook'] ?: 'https://www.facebook.com/'; // добавляем вывод ссылки
+		$link_twitter = @ $instance['link_twitter'] ?: 'https://www.twitter.com/';
+		$link_youtube = @ $instance['link_youtube'] ?: 'https://www.youtube.com/';
+		$link_instagram = @ $instance['link_instagram'] ?: 'https://www.instagram.com/';
 
 		?>
+        <p>
+			<label for="<?php echo $this->get_field_id( 'title_social_icons' ); ?>"><?php _e( 'Title:' ); ?></label> 
+			<input class="widefat" id="<?php echo $this->get_field_id( 'title_social_icons' ); ?>" name="<?php echo $this->get_field_name( 'title_social_icons' ); ?>" type="text" value="<?php echo esc_attr( $title_social_icons ); ?>">
+		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label> 
-			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
+			<?php _e( 'facebook' ); ?>
+			<!-- <label for="<?php echo $this->get_field_id( 'social_network_name' ); ?>"><?php _e( 'Название соцсети:' ); ?></label>  -->
+			<!-- <input class="widefat" id="<?php echo $this->get_field_id( 'social_network_name' ); ?>" name="<?php echo $this->get_field_name( 'social_network_name' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>"> -->
 		</p>
         <p>
-			<label for="<?php echo $this->get_field_id( 'description' ); ?>"><?php _e( 'Описание:' ); ?></label> 
-			<input class="widefat" id="<?php echo $this->get_field_id( 'description' ); ?>" name="<?php echo $this->get_field_name( 'description' ); ?>" type="text" value="<?php echo esc_attr( $description ); ?>">
+			<label for="<?php echo $this->get_field_id( 'link_facebook' ); ?>"><?php _e( 'Ссылка на страницу:' ); ?></label> 
+			<input class="widefat" id="<?php echo $this->get_field_id( 'link_facebook' ); ?>" name="<?php echo $this->get_field_name( 'link_facebook' ); ?>" type="text" value="<?php echo esc_attr( $link_facebook ); ?>">
 		</p>
         <p>
-			<label for="<?php echo $this->get_field_id( 'link' ); ?>"><?php _e( 'Ссылка на файл:' ); ?></label> 
-			<input class="widefat" id="<?php echo $this->get_field_id( 'link' ); ?>" name="<?php echo $this->get_field_name( 'link' ); ?>" type="text" value="<?php echo esc_attr( $link ); ?>">
+			<?php _e( 'twitter' ); ?>
+			<!-- <label for="<?php echo $this->get_field_id( 'social_network_name' ); ?>"><?php _e( 'Название соцсети:' ); ?></label>  -->
+			<!-- <input class="widefat" id="<?php echo $this->get_field_id( 'social_network_name' ); ?>" name="<?php echo $this->get_field_name( 'social_network_name' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>"> -->
+		</p>
+        <p>
+			<label for="<?php echo $this->get_field_id( 'link_twitter' ); ?>"><?php _e( 'Ссылка на страницу:' ); ?></label> 
+			<input class="widefat" id="<?php echo $this->get_field_id( 'link_twitter' ); ?>" name="<?php echo $this->get_field_name( 'link_twitter' ); ?>" type="text" value="<?php echo esc_attr( $link_twitter ); ?>">
+		</p>
+        <p>
+			<?php _e( 'youtube' ); ?>
+			<!-- <label for="<?php echo $this->get_field_id( 'social_network_name' ); ?>"><?php _e( 'Название соцсети:' ); ?></label> 
+			<input class="widefat" id="<?php echo $this->get_field_id( 'social_network_name' ); ?>" name="<?php echo $this->get_field_name( 'social_network_name' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>"> -->
+		</p>
+        <p>
+			<label for="<?php echo $this->get_field_id( 'link_youtube' ); ?>"><?php _e( 'Ссылка на страницу:' ); ?></label> 
+			<input class="widefat" id="<?php echo $this->get_field_id( 'link_youtube' ); ?>" name="<?php echo $this->get_field_name( 'link_youtube' ); ?>" type="text" value="<?php echo esc_attr( $link_youtube ); ?>">
+		</p>
+		<p>
+			<?php _e( 'instagram' ); ?>
+			<!-- <label for="<?php echo $this->get_field_id( 'social_network_name' ); ?>"><?php _e( 'Название соцсети:' ); ?></label> 
+			<input class="widefat" id="<?php echo $this->get_field_id( 'social_network_name' ); ?>" name="<?php echo $this->get_field_name( 'social_network_name' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>"> -->
+		</p>
+        <p>
+			<label for="<?php echo $this->get_field_id( 'link_instagram' ); ?>"><?php _e( 'Ссылка на страницу:' ); ?></label> 
+			<input class="widefat" id="<?php echo $this->get_field_id( 'link_instagram' ); ?>" name="<?php echo $this->get_field_name( 'link_instagram' ); ?>" type="text" value="<?php echo esc_attr( $link_instagram ); ?>">
 		</p>
 		<?php 
 	}
@@ -215,9 +254,12 @@ class Social_Icons_Widget extends WP_Widget {
 	 */
 	function update( $new_instance, $old_instance ) {
 		$instance = array();
-        $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
-        $instance['description'] = ( ! empty( $new_instance['description'] ) ) ? strip_tags( $new_instance['description'] ) : '';
-        $instance['link'] = ( ! empty( $new_instance['link'] ) ) ? strip_tags( $new_instance['link'] ) : '';
+		$instance['title_social_icons'] = ( ! empty( $new_instance['title_social_icons'] ) ) ? strip_tags( $new_instance['title_social_icons'] ) : '';
+        // $instance['social_network'] = ( ! empty( $new_instance['social_network'] ) ) ? strip_tags( $new_instance['social_network'] ) : '';
+		$instance['link_facebook'] = ( ! empty( $new_instance['link_facebook'] ) ) ? strip_tags( $new_instance['link_facebook'] ) : '';
+		$instance['link_twitter'] = ( ! empty( $new_instance['link_twitter'] ) ) ? strip_tags( $new_instance['link_twitter'] ) : '';
+		$instance['link_youtube'] = ( ! empty( $new_instance['link_youtube'] ) ) ? strip_tags( $new_instance['link_youtube'] ) : '';
+		$instance['link_instagram'] = ( ! empty( $new_instance['link_instagram'] ) ) ? strip_tags( $new_instance['link_instagram'] ) : '';
 
 		return $instance;
 	}

@@ -1,5 +1,4 @@
 <?php
-require_once  "functions-widget.php";
 
 // если ли уже зарегистрированная функция, которая настраивает нашу тему,
 //т.е. если функция universal_theme_setup еще не существует, то
@@ -62,6 +61,17 @@ function universal_theme_widgets_init() {
 }
 add_action( 'widgets_init', 'universal_theme_widgets_init' );
 
+require_once  "inc/functions-widget.php";
+
+// изменяем настройки облака тегов
+function edit_widget_tag_cloud_args($args) {
+	$args['unit'] = 'px'; // единицы измерения
+	$args['smallest'] = '14'; // минимальный размер
+	$args['largest'] = '14'; // максимальный размер
+	$args['number'] = '13'; // количество выводимых тегов
+	return $args;
+}
+add_filter( 'widget_tag_cloud_args', 'edit_widget_tag_cloud_args' );
 
 // правильный способ подключить стили и скрипты
 function enqueue_universal_style() {
@@ -75,7 +85,6 @@ function enqueue_universal_style() {
 add_action( 'wp_enqueue_scripts', 'enqueue_universal_style' ); // хук
 
 ## отключаем создание миниатюр файлов для указанных размеров
-add_filter( 'intermediate_image_sizes', 'delete_intermediate_image_sizes' );
 function delete_intermediate_image_sizes( $sizes ){
 	// размеры которые нужно удалить
 	return array_diff( $sizes, [
@@ -85,36 +94,8 @@ function delete_intermediate_image_sizes( $sizes ){
 		'2048x2048',
 	] );
 }
+add_filter( 'intermediate_image_sizes', 'delete_intermediate_image_sizes' );
 
-// изменяем настройки облака тегов
-add_filter( 'widget_tag_cloud_args', 'edit_widget_tag_cloud_args' );
-function edit_widget_tag_cloud_args($args) {
-	$args['unit'] = 'px'; // единицы измерения
-	$args['smallest'] = '14'; // минимальный размер
-	$args['largest'] = '14'; // максимальный размер
-	$args['number'] = '13'; // количество выводимых тегов
-	return $args;
-}
 
-// обрезает заголовок на $count - символов, в конце подставляет $after
-// в коде вместо <?php the_title();  нужно писать н-р, <?php trim_title_chars(30, '...');
-function trim_title_chars($count, $after) {
-	$title = get_the_title();
-	if (mb_strlen($title) > $count) $title = mb_substr($title, 0, $count);
-	else $after = '';
-	echo $title . $after;
-}
-
-// обрезает заголовок на $count - слов, в конце подставляет $after
-// в коде вместо <?php the_title();  нужно писать н-р, <?php trim_title_words(5, '...');
-function trim_title_words($count, $after) {
-	$title = get_the_title();
-	$words = explode(' ', $title);
-	if (count($words) > $count) {
-		array_splice($words, $count);
-		$title = implode(' ', $words);
-	}
-	else $after = '';
-	echo $title . $after;
-}
+require_once  "inc/functions-custom.php";
 
