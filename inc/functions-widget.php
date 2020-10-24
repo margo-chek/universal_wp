@@ -164,11 +164,11 @@ class Social_Icons_Widget extends WP_Widget {
 		$link_youtube = $instance['link_youtube'];
 		$link_instagram = $instance['link_instagram'];
 
-		// echo '<div class="social-network-block">';
 		echo $args['before_widget'];
 		if ( ! empty( $title_social_icons ) ) {
 			echo $args['before_title'] . $title_social_icons . $args['after_title'];
-        }
+		}
+		echo '<div class="widget-icons">';
 		if ( ! empty ( $link_facebook )) {
 			echo '<a href=' . $link_facebook . ' class="social-network-button facebook"></a>';
         }
@@ -180,9 +180,9 @@ class Social_Icons_Widget extends WP_Widget {
 		}
 		 if ( ! empty ( $link_instagram )) {
 			echo '<a href=' . $link_instagram . ' class="social-network-button instagram"></a>';
-        }
+		}
+		// echo '</div>';
         echo $args['after_widget'];
-        // echo '</div>';
 	}
 
 	/**

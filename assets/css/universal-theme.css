@@ -756,9 +756,27 @@ body {
 
 .widget-social-icons {
   display: flex;
+  flex-direction: column;
+  padding: 30px 25px 40px;
+}
+
+.widget-social-icons .widget-title {
+  margin: 0 auto 25px;
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 25px;
+  border: none;
+  text-transform: none;
+  padding: 0;
+  color: #262D33;
+}
+
+.widget-social-icons .widget-icons {
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 25px;
 }
 
 .social-network-button {
