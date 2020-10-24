@@ -250,4 +250,32 @@
 
 </div>
 
+<?php
+// задаем нужные нам критерии выборки данных из БД
+$args = array(
+	'posts_per_page' => 1,
+	'category_name' => 'investigation'
+);
+
+$query = new WP_Query( $args );
+
+// Цикл
+if ( $query->have_posts() ) {
+	while ( $query->have_posts() ) {
+		$query->the_post();
+		?>
+        <section class="investigation" style="background: linear-gradient(0deg, rgba(64, 48, 61, 0.35), rgba(64, 48, 61, 0.35)), url(<?php echo get_the_post_thumbnail_url(); ?>)">
+            <div class="container">
+                <h2 class="investigation-title"><?php the_title(); ?></h2>
+                <a href="<?php echo get_the_permalink()?>" class="more">Читать статью</a>
+            </div>
+        </section>
+        <?php
+	}
+} else {
+	// Постов не найдено
+}
+// Возвращаем оригинальные данные поста. Сбрасываем $post.
+wp_reset_postdata(); ?>
+
 <?php get_footer(); ?>
