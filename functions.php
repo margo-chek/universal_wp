@@ -68,7 +68,7 @@ function edit_widget_tag_cloud_args($args) {
 	$args['unit'] = 'px'; // единицы измерения
 	$args['smallest'] = '14'; // минимальный размер
 	$args['largest'] = '14'; // максимальный размер
-	$args['number'] = '11'; // количество выводимых тегов
+	$args['number'] = '13'; // количество выводимых тегов
 	return $args;
 }
 add_filter( 'widget_tag_cloud_args', 'edit_widget_tag_cloud_args' );
