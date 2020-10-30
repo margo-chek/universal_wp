@@ -201,7 +201,7 @@
                                                     <span class="comments-counter"><?php comments_number('0', '1', '%'); ?></span>
                                                 </div>
                                                 <div class="likes">
-                                                    <img src="<?php echo get_template_directory_uri() . './assets/images/heart.svg' ?>"
+                                                    <img src="<?php echo get_template_directory_uri() . './assets/images/heart-white.svg' ?>"
                                                         alt="icon: like" class="likes-icon">
                                                     <span class="likes-counter"><?php comments_number('0', '1', '%'); ?></span>
                                                 </div>
@@ -252,31 +252,85 @@
 </div>
 
 <?php
-// задаем нужные нам критерии выборки данных из БД
-$args = array(
-	'posts_per_page' => 1,
-	'category_name' => 'investigation'
-);
+    // задаем нужные нам критерии выборки данных из БД
+    $args = array(
+        'posts_per_page' => 1,
+        'category_name' => 'investigation'
+    );
 
-$query = new WP_Query( $args );
+    $query = new WP_Query( $args );
 
-// Цикл
-if ( $query->have_posts() ) {
-	while ( $query->have_posts() ) {
-		$query->the_post();
-		?>
-        <section class="investigation" style="background: linear-gradient(0deg, rgba(64, 48, 61, 0.45), rgba(64, 48, 61, 0.45)), url(<?php echo get_the_post_thumbnail_url(); ?>) no-repeat center center">
-            <div class="container">
-                <h2 class="investigation-title"><?php the_title(); ?></h2>
-                <a href="<?php echo get_the_permalink()?>" class="more">Читать статью</a>
-            </div>
-        </section>
+    // Цикл
+    if ( $query->have_posts() ) {
+        while ( $query->have_posts() ) {
+            $query->the_post();
+            ?>
+            <section class="investigation" style="background: linear-gradient(0deg, rgba(64, 48, 61, 0.45), rgba(64, 48, 61, 0.45)), url(<?php echo get_the_post_thumbnail_url(); ?>) no-repeat center center">
+                <div class="container">
+                    <h2 class="investigation-title"><?php the_title(); ?></h2>
+                    <a href="<?php echo get_the_permalink()?>" class="more">Читать статью</a>
+                </div>
+            </section>
+            <?php
+        }
+    } else {
+        // Постов не найдено
+    }
+    // Возвращаем оригинальные данные поста. Сбрасываем $post.
+    wp_reset_postdata();
+?>
+
+<div class="container">
+    <ul class="bookmark-list">
+
         <?php
-	}
-} else {
-	// Постов не найдено
-}
-// Возвращаем оригинальные данные поста. Сбрасываем $post.
-wp_reset_postdata(); ?>
+        global $post; // объявляем глобальную переменную
+        $myposts = get_posts([ 
+            'numberposts'   => 6, // берем из бд максимум 4 последних постов
+            'orderby' => 'date', // сортировать по к-либо параметрам, н-р, по дате
+            'order' => 'ASC', // в каком направлении сортировать orderby: ASC - по порядку (а,б,в), DESC - в обратном порядке
+        ]);              
+        if( $myposts ){ // проверяем, есть ли вообще посты
+            foreach( $myposts as $post ){ // если есть - запускаем цикл
+                setup_postdata( $post ); // устанавливаем данные
+                ?>
+                <!-- выводим записи -->
+                <li class="bookmark-item">
+                    <a class="bookmark-permalink" href="<?php echo get_the_permalink(); ?>">
+                        <img class="bookmark-thumbnail" src="<?php echo get_the_post_thumbnail_url() ?>" alt="">
+                        <div class="bookmark-content">
+                            <div class="bookmark-top">
+                                <span class="category-name"><?php echo get_the_category()[0]->name; ?></span>
+                                <img src="<?php echo get_template_directory_uri() . './assets/images/bookmark-grey.svg' ?>"
+                                        alt="icon: bookmark" class="bookmark-icon">
+                            </div>
+                            <h4 class="bookmark-title"><?php trim_title_chars(56, '...'); ?></h4>
+                            <p class="bookmark-excerpt"><?php echo mb_strimwidth (get_the_excerpt(), 0, 120, '...'); ?></p>
+                            <div class="bookmark-info">
+                                <span class="date"><?php the_time( 'j F' ); ?></span>
+                                <div class="comments">
+                                    <img src="<?php echo get_template_directory_uri() . './assets/images/comment.svg' ?>"
+                                        alt="icon: comment" class="comments-icon">
+                                    <span class="comments-counter"><?php comments_number('0', '1', '%'); ?></span>
+                                </div>
+                                <div class="likes">
+                                    <img src="<?php echo get_template_directory_uri() . './assets/images/heart.svg' ?>"
+                                        alt="icon: like" class="likes-icon">
+                                    <span class="likes-counter"><?php comments_number('0', '1', '%'); ?></span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            <?php 
+            }
+        } else {
+        ?> <p>Постов нет</p> <?php
+        }
+        wp_reset_postdata(); // сбрасываем $post
+        ?>
+
+    </ul>
+</div>
 
 <?php get_footer(); ?>
