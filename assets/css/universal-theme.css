@@ -179,22 +179,6 @@ body {
   z-index: 2;
 }
 
-.hero .left .post-text .post-categories {
-  padding: 0;
-  margin: 0;
-}
-
-.hero .left .post-text .post-categories a {
-  color: #4592FF;
-  text-transform: uppercase;
-  font-family: "Lato Black", sans-serif;
-  font-size: 12px;
-  line-height: 15px;
-  text-decoration: none;
-  letter-spacing: 0.5px;
-  text-align: left;
-}
-
 .hero .left .post-text .post-title {
   font-size: 40px;
   font-weight: 700;
@@ -304,6 +288,53 @@ a.more:visited {
   color: #ffffff;
 }
 
+.category-link {
+  color: #4592FF;
+  text-transform: uppercase;
+  font-family: "Lato Black", sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  text-align: left;
+}
+
+.category-link:visited {
+  color: #4592FF;
+}
+
+.category-link.web-design {
+  color: #FFA34D;
+}
+
+.category-link.web-design:visited {
+  color: #FFA34D;
+}
+
+.category-link.html {
+  color: #AC8EE3;
+}
+
+.category-link.html:visited {
+  color: #AC8EE3;
+}
+
+.category-link.css {
+  color: #3BBDC4;
+}
+
+.category-link.css:visited {
+  color: #3BBDC4;
+}
+
+.category-link.javascript {
+  color: #6E99AE;
+}
+
+.category-link.javascript:visited {
+  color: #6E99AE;
+}
+
 .article-list {
   margin: 0;
   margin-top: 180px;
@@ -382,6 +413,7 @@ a.article-permalink:visited {
 .article-grid-permalink {
   text-decoration: none;
   color: #262D33;
+  height: 100%;
 }
 
 .article-grid-permalink:hover {
@@ -850,15 +882,11 @@ a.article-grid-permalink:visited {
   padding: 25px;
   list-style: none;
   text-decoration: none;
-}
-
-.bookmark-permalink {
   display: flex;
   flex-direction: row;
 }
 
 .bookmark-thumbnail {
-  height: 100%;
   width: 30%;
   object-fit: cover;
   margin-right: 25px;
@@ -923,6 +951,42 @@ a.article-grid-permalink:visited {
   text-transform: uppercase;
   text-decoration: none;
   color: #4592FF;
+}
+
+.category-name:visited {
+  color: #4592FF;
+}
+
+.category-name.web-design {
+  color: #FFA34D;
+}
+
+.category-name.web-design:visited {
+  color: #FFA34D;
+}
+
+.category-name.html {
+  color: #AC8EE3;
+}
+
+.category-name.html:visited {
+  color: #AC8EE3;
+}
+
+.category-name.css {
+  color: #3BBDC4;
+}
+
+.category-name.css:visited {
+  color: #3BBDC4;
+}
+
+.category-name.javascript {
+  color: #6E99AE;
+}
+
+.category-name.javascript:visited {
+  color: #6E99AE;
 }
 
 .date, .comments, .likes {

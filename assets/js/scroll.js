@@ -1,5 +1,5 @@
         document.addEventListener('click', function(event) {
-            let modal = document.querySelector('body.tl-ааа-activ');
+            let modal = document.querySelector('body.tl-fancybox-active');
             let html = document.querySelector('html');
             if (modal != null) {
                 console.log("ДА");

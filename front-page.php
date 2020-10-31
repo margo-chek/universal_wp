@@ -4,21 +4,7 @@
         <div class="hero">
             <div class="left">
 
-                <!-- <img src="<?php echo get_template_directory_uri() . '/assets/images/backgroundFontPage.jpg' ?>" alt="" class="post-thumb">
-                <a href="#" class="author">
-                    <img src="<?php echo get_template_directory_uri() . '/assets/images/avatar.png' ?>" alt="" class="avatar">
-                    <div class="author-bio">
-                        <span class="author-name">имя автора</span>
-                        <span class="author-rank">должность</span>
-                    </div>
-                </a>
-                <div class="post-text">
-                    <a href="#" class="category-name">Рубрики</a>
-                    <h2 class="post-title">Название поста</h2>
-                    <a href="#" class="more">Читать далее</a>
-                </div> -->
-
-                <?php
+               <?php
                 // объявляем глобальную переменную
                 global $post;
 
@@ -30,7 +16,6 @@
                     // 'orderby' => 'date', // сортировать по к-либо параметрам, н-р, по дате
                     // 'order' => 'DESC', // в каком направлении сортировать orderby: ASC - по порядку (а,б,в), DESC - в обратном порядке
                 ]);
-
                 // проверяем, есть ли вообще посты
                 if( $myposts ){
                     // если есть - запускаем цикл
@@ -54,7 +39,16 @@
                             </div>
                         </a>
                         <div class="post-text">
-                            <?php the_category(); ?>
+                            <?php
+                                foreach (get_the_category() as $category) { // вместо the_category(); 
+                                    printf(
+                                        '<a href="%s" class="category-link %s">%s</a>',
+                                        esc_url( get_category_link( $category ) ), // esc_url() обезопасывет ссылку
+                                        esc_html( $category -> slug ), // безопасность названий
+                                        esc_html( $category -> name )
+                                    );
+                                }
+                            ?>
                             <h2 class="post-title"><?php trim_title_words(5, '...'); ?></h2>
                             <a href="<?php echo get_the_permalink()?>" class="more">Читать далее</a>
                         </div>
@@ -86,7 +80,16 @@
                             ?>
                             <!-- выводим записи -->
                             <li class="post">
-                                <?php the_category(); ?>
+                                <?php
+                                    foreach (get_the_category() as $category) { // вместо the_category(); 
+                                        printf(
+                                            '<a href="%s" class="category-link %s">%s</a>',
+                                            esc_url( get_category_link( $category ) ), // esc_url() обезопасывет ссылку
+                                            esc_html( $category -> slug ), // безопасность названий
+                                            esc_html( $category -> name )
+                                        );
+                                    }
+                                ?>
                                 <a class="post-permalink" href="<?php echo get_the_permalink(); ?>">
                                     <h4 class="recommend-post-title"><?php echo mb_strimwidth(get_the_title(), 0, 56, '...'); ?></h4>
                                 </a>
@@ -296,31 +299,39 @@
                 ?>
                 <!-- выводим записи -->
                 <li class="bookmark-item">
-                    <a class="bookmark-permalink" href="<?php echo get_the_permalink(); ?>">
-                        <img class="bookmark-thumbnail" src="<?php echo get_the_post_thumbnail_url() ?>" alt="">
-                        <div class="bookmark-content">
-                            <div class="bookmark-top">
-                                <span class="category-name"><?php echo get_the_category()[0]->name; ?></span>
+                    <img class="bookmark-thumbnail" src="<?php echo get_the_post_thumbnail_url() ?>" alt="">
+                    <div class="bookmark-content">
+                        <div class="bookmark-top">
+                            <?php
+                                $category = get_the_category()[0]; // foreach (get_the_category() as $category) {...}
+                                    printf(
+                                        '<a href="%s" class="category-name %s">%s</a>',
+                                        esc_url( get_category_link( $category ) ), // esc_url() обезопасывет ссылку
+                                        esc_html( $category->slug ), // безопасность названий
+                                        esc_html( $category->name )
+                                    );
+                            ?>
+                            <a class="bookmark-permalink" href="<?php //echo get_the_permalink(); ?>">
                                 <img src="<?php echo get_template_directory_uri() . './assets/images/bookmark-grey.svg' ?>"
                                         alt="icon: bookmark" class="bookmark-icon">
+                            </a>
+                        </div>
+                        <h4 class="bookmark-title"><?php trim_title_chars(56, '...'); ?></h4>
+                        <p class="bookmark-excerpt"><?php echo mb_strimwidth (get_the_excerpt(), 0, 120, '...'); ?></p>
+                        <div class="bookmark-info">
+                            <span class="date"><?php the_time( 'j F' ); ?></span>
+                            <div class="comments">
+                                <img src="<?php echo get_template_directory_uri() . './assets/images/comment.svg' ?>"
+                                    alt="icon: comment" class="comments-icon">
+                                <span class="comments-counter"><?php comments_number('0', '1', '%'); ?></span>
                             </div>
-                            <h4 class="bookmark-title"><?php trim_title_chars(56, '...'); ?></h4>
-                            <p class="bookmark-excerpt"><?php echo mb_strimwidth (get_the_excerpt(), 0, 120, '...'); ?></p>
-                            <div class="bookmark-info">
-                                <span class="date"><?php the_time( 'j F' ); ?></span>
-                                <div class="comments">
-                                    <img src="<?php echo get_template_directory_uri() . './assets/images/comment.svg' ?>"
-                                        alt="icon: comment" class="comments-icon">
-                                    <span class="comments-counter"><?php comments_number('0', '1', '%'); ?></span>
-                                </div>
-                                <div class="likes">
-                                    <img src="<?php echo get_template_directory_uri() . './assets/images/heart.svg' ?>"
-                                        alt="icon: like" class="likes-icon">
-                                    <span class="likes-counter"><?php comments_number('0', '1', '%'); ?></span>
-                                </div>
+                            <div class="likes">
+                                <img src="<?php echo get_template_directory_uri() . './assets/images/heart.svg' ?>"
+                                    alt="icon: like" class="likes-icon">
+                                <span class="likes-counter"><?php comments_number('0', '1', '%'); ?></span>
                             </div>
                         </div>
-                    </a>
+                    </div>
                 </li>
             <?php 
             }
