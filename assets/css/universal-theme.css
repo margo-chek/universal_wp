@@ -875,7 +875,7 @@ a.article-grid-permalink:visited {
 .bookmark-list {
   margin: 0;
   padding: 0;
-  max-width: 848px;
+  max-width: 850px;
 }
 
 .bookmark-item {
@@ -889,14 +889,13 @@ a.article-grid-permalink:visited {
 .bookmark-thumbnail {
   width: 30%;
   object-fit: cover;
-  margin-right: 25px;
 }
 
 .bookmark-content {
   display: flex;
   flex-direction: column;
-  max-width: 437px;
-  text-decoration: none;
+  max-width: 560px;
+  padding: 0 25px;
 }
 
 .bookmark-top {
