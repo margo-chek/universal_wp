@@ -345,11 +345,11 @@ class Recent_Post_Widget extends WP_Widget {
 				?>
 				<a href="<?php the_permalink() ?>" class="recent-post-link">
 					<img class="recent-post-thumb" src="<?php echo get_the_post_thumbnail_url( null, 'thumbnail' ); ?>" alt="">
-					<div class="recent-post-info">
-						<h4 class="recent-post-title"><?php the_title(); ?></h4>
+					<div class="widget-recent-post-info">
+						<h4 class="recent-post-title"><?php echo mb_strimwidth(get_the_title(), 0, 30, '...'); ?></h4>
 						<span class="recent-post-time">
 							<?php $time_diff = human_time_diff( get_post_time('U'), current_time('timestamp') );
-								echo "Опубликовано $time_diff назад."; //> Опубликовано 5 лет назад. ?>
+								echo "$time_diff назад"; // Опубликовано > 5 лет назад ?>
 						</span>
 					</div>
 				</a>

@@ -12,7 +12,7 @@ if ( ! is_active_sidebar( 'sidebar-main-bottom' ) ) {
 }
 ?>
 
-<aside class="sidebar-front-page">
+<aside class="sidebar-front-page sidebar-front-page-bottom">
 	<?php dynamic_sidebar( 'sidebar-main-bottom' ); ?>
 </aside>
 
