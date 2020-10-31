@@ -4,11 +4,14 @@
         padding: 0
         max-width: 850px
     &-item
-        padding: 25px
+        margin: 0 25px
         list-style: none
         text-decoration: none
         display: flex
         flex-direction: row
+        padding: 25px 0
+        &:not(:last-child)
+            border-bottom: 1px solid #D9DADB
     &-thumbnail
         width: 30%
         object-fit: cover

@@ -284,64 +284,70 @@
 ?>
 
 <div class="container">
-    <ul class="bookmark-list">
+    <div class="main-grid"> 
+        <ul class="bookmark-list">
 
-        <?php
-        global $post; // объявляем глобальную переменную
-        $myposts = get_posts([ 
-            'numberposts'   => 6, // берем из бд максимум 4 последних постов
-            'orderby' => 'date', // сортировать по к-либо параметрам, н-р, по дате
-            'order' => 'ASC', // в каком направлении сортировать orderby: ASC - по порядку (а,б,в), DESC - в обратном порядке
-        ]);              
-        if( $myposts ){ // проверяем, есть ли вообще посты
-            foreach( $myposts as $post ){ // если есть - запускаем цикл
-                setup_postdata( $post ); // устанавливаем данные
-                ?>
-                <!-- выводим записи -->
-                <li class="bookmark-item">
-                    <img class="bookmark-thumbnail" src="<?php echo get_the_post_thumbnail_url() ?>" alt="">
-                    <div class="bookmark-content">
-                        <div class="bookmark-top">
-                            <?php
-                                $category = get_the_category()[0]; // foreach (get_the_category() as $category) {...}
-                                    printf(
-                                        '<a href="%s" class="category-name %s">%s</a>',
-                                        esc_url( get_category_link( $category ) ), // esc_url() обезопасывет ссылку
-                                        esc_html( $category->slug ), // безопасность названий
-                                        esc_html( $category->name )
-                                    );
-                            ?>
-                            <a class="bookmark-permalink" href="<?php //echo get_the_permalink(); ?>">
-                                <img src="<?php echo get_template_directory_uri() . './assets/images/bookmark-grey.svg' ?>"
-                                        alt="icon: bookmark" class="bookmark-icon">
-                            </a>
-                        </div>
-                        <h4 class="bookmark-title"><?php trim_title_chars(56, '...'); ?></h4>
-                        <p class="bookmark-excerpt"><?php echo mb_strimwidth (get_the_excerpt(), 0, 120, '...'); ?></p>
-                        <div class="bookmark-info">
-                            <span class="date"><?php the_time( 'j F' ); ?></span>
-                            <div class="comments">
-                                <img src="<?php echo get_template_directory_uri() . './assets/images/comment.svg' ?>"
-                                    alt="icon: comment" class="comments-icon">
-                                <span class="comments-counter"><?php comments_number('0', '1', '%'); ?></span>
+            <?php
+            global $post; // объявляем глобальную переменную
+            $myposts = get_posts([ 
+                'numberposts'   => 6, // берем из бд максимум 4 последних постов
+                'orderby' => 'date', // сортировать по к-либо параметрам, н-р, по дате
+                'order' => 'ASC', // в каком направлении сортировать orderby: ASC - по порядку (а,б,в), DESC - в обратном порядке
+            ]);              
+            if( $myposts ){ // проверяем, есть ли вообще посты
+                foreach( $myposts as $post ){ // если есть - запускаем цикл
+                    setup_postdata( $post ); // устанавливаем данные
+                    ?>
+                    <!-- выводим записи -->
+                    <li class="bookmark-item">
+                        <img class="bookmark-thumbnail" src="<?php echo get_the_post_thumbnail_url() ?>" alt="">
+                        <div class="bookmark-content">
+                            <div class="bookmark-top">
+                                <?php
+                                    $category = get_the_category()[0]; // foreach (get_the_category() as $category) {...}
+                                        printf(
+                                            '<a href="%s" class="category-name %s">%s</a>',
+                                            esc_url( get_category_link( $category ) ), // esc_url() обезопасывет ссылку
+                                            esc_html( $category->slug ), // безопасность названий
+                                            esc_html( $category->name )
+                                        );
+                                ?>
+                                <a class="bookmark-permalink" href="<?php //echo get_the_permalink(); ?>">
+                                    <img src="<?php echo get_template_directory_uri() . './assets/images/bookmark-grey.svg' ?>"
+                                            alt="icon: bookmark" class="bookmark-icon">
+                                </a>
                             </div>
-                            <div class="likes">
-                                <img src="<?php echo get_template_directory_uri() . './assets/images/heart.svg' ?>"
-                                    alt="icon: like" class="likes-icon">
-                                <span class="likes-counter"><?php comments_number('0', '1', '%'); ?></span>
+                            <h4 class="bookmark-title"><?php trim_title_chars(56, '...'); ?></h4>
+                            <p class="bookmark-excerpt"><?php echo mb_strimwidth (get_the_excerpt(), 0, 120, '...'); ?></p>
+                            <div class="bookmark-info">
+                                <span class="date"><?php the_time( 'j F' ); ?></span>
+                                <div class="comments">
+                                    <img src="<?php echo get_template_directory_uri() . './assets/images/comment.svg' ?>"
+                                        alt="icon: comment" class="comments-icon">
+                                    <span class="comments-counter"><?php comments_number('0', '1', '%'); ?></span>
+                                </div>
+                                <div class="likes">
+                                    <img src="<?php echo get_template_directory_uri() . './assets/images/heart.svg' ?>"
+                                        alt="icon: like" class="likes-icon">
+                                    <span class="likes-counter"><?php comments_number('0', '1', '%'); ?></span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </li>
-            <?php 
+                    </li>
+                <?php 
+                }
+            } else {
+            ?> <p>Постов нет</p> <?php
             }
-        } else {
-        ?> <p>Постов нет</p> <?php
-        }
-        wp_reset_postdata(); // сбрасываем $post
-        ?>
+            wp_reset_postdata(); // сбрасываем $post
+            ?>
 
-    </ul>
+        </ul>
+
+    </div>
+
+    <?php get_sidebar('main-bottom'); ?>
+
 </div>
 
 <?php get_footer(); ?>

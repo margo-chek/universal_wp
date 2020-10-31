@@ -780,6 +780,23 @@ a.article-grid-permalink:visited {
   margin: 0;
 }
 
+.widget-recent-post-wrapper {
+  padding: 17px 25px;
+}
+
+.widget-recent-post a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.widget-recent-post img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
 .widget .tagcloud {
   display: flex;
   align-items: center;
@@ -879,11 +896,16 @@ a.article-grid-permalink:visited {
 }
 
 .bookmark-item {
-  padding: 25px;
+  margin: 0 25px;
   list-style: none;
   text-decoration: none;
   display: flex;
   flex-direction: row;
+  padding: 25px 0;
+}
+
+.bookmark-item:not(:last-child) {
+  border-bottom: 1px solid #D9DADB;
 }
 
 .bookmark-thumbnail {
