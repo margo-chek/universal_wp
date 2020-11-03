@@ -29,7 +29,16 @@
                         <!-- функция the_title(); - выводит заголовок текущей записи -->
 
                         <!-- выводим записи -->
-                        <img src="<?php the_post_thumbnail_url(); ?>" alt="" class="post-thumb">
+                        <!-- <img src="<?php //the_post_thumbnail_url(); ?>" alt="" class="post-thumb"> -->
+                        <img class="post-thumb" src="
+                        <?php //должно находится внутри цикла
+                        if( has_post_thumbnail() ) {
+                            the_post_thumbnail_url();
+                        }
+                        else {
+                            echo get_template_directory_uri().'/assets/images/img-default.png';
+                        }
+                        ?>" alt="">
                         <?php $author_id = get_the_author_meta('ID'); ?>  <!-- получаем данные автора -->
                         <a href="<?php echo get_author_posts_url($author_id); ?>" class="author">
                             <img src="<?php echo get_avatar_url($author_id); ?>" alt="" class="avatar">
@@ -126,7 +135,16 @@
                     <a class="article-permalink" href="<?php echo get_the_permalink(); ?>">
                         <h4 class="article-title"><?php trim_title_chars(68, '...'); ?></h4>
                     </a>
-                    <img width="65" height="65" src="<?php echo get_the_post_thumbnail_url( null, 'thumbnail' ); ?>" alt="">
+                    <!-- <img width="65" height="65" src="<?php //echo get_the_post_thumbnail_url( null, 'thumbnail' ); ?>" alt=""> -->
+                    <img width="65" height="65" src="
+					<?php //должно находится внутри цикла
+					if( has_post_thumbnail() ) {
+						echo get_the_post_thumbnail_url( null, 'thumbnail' );
+					}
+					else {
+						echo get_template_directory_uri().'/assets/images/img-default.png';
+					}
+					?>" alt="">
                 </li>
             <?php 
             }
@@ -158,7 +176,16 @@
                             ?>
                             <li class="article-grid-item article-grid-item-1">
                                 <a href="<?php the_permalink(); ?>" class="article-grid-permalink">
-                                    <img class="article-grid-thumbnail" src="<?php echo get_the_post_thumbnail_url() ?>" alt="">
+                                    <!-- <img class="article-grid-thumbnail" src="<?php //echo get_the_post_thumbnail_url() ?>" alt=""> -->
+                                    <img class="article-grid-thumbnail" src="
+                                    <?php //должно находится внутри цикла
+                                    if( has_post_thumbnail() ) {
+                                        echo get_the_post_thumbnail_url();
+                                    }
+                                    else {
+                                        echo get_template_directory_uri().'/assets/images/img-default.png';
+                                    }
+                                    ?>" alt="">
                                     <span class="category-name"><?php echo get_the_category()[0]->name; ?></span>
                                     <h4 class="article-grid-title"><?php trim_title_chars(56, '...'); ?></h4>
                                     <p class="article-grid-excerpt"><?php echo mb_strimwidth (get_the_excerpt(), 0, 120, '...'); ?></p>
@@ -169,8 +196,11 @@
                                             <span class="author-name"><strong><?php the_author(); ?></strong> : <?php the_author_meta( 'description' ) ?></span>
                                         </div>
                                         <div class="comments">
-                                            <img src="<?php echo get_template_directory_uri() . '/assets/images/comment.svg' ?>"
-                                                alt="icon: comment" class="comments-icon">
+                                            <svg width="13.5" height="13.5" class="icon comments-icon-grey">
+                                                <use xlink:href="<?php echo get_template_directory_uri()?>/assets/images/sprite.svg#comment"></use>
+                                            </svg>
+                                            <!-- <img src="<?php //echo get_template_directory_uri() . '/assets/images/comment.svg' ?>"
+                                                alt="icon: comment" class="comments-icon"> -->
                                             <span class="comments-counter"><?php comments_number('0', '1', '%'); ?></span>
                                         </div>
                                     </div>
@@ -181,7 +211,16 @@
                         case '2': // выводим второй пост
                             ?>
                             <li class="article-grid-item article-grid-item-2">
-                                <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="" class="article-grid-thumb">
+                                <!-- <img src="<?php //echo get_the_post_thumbnail_url(); ?>" alt="" class="article-grid-thumb"> -->
+                                <img class="article-grid-thumb" src="
+                                <?php //должно находится внутри цикла
+                                if( has_post_thumbnail() ) {
+                                    echo get_the_post_thumbnail_url();
+                                }
+                                else {
+                                    echo get_template_directory_uri().'/assets/images/img-default.png';
+                                }
+                                ?>" alt="">
                                 <a href="<?php the_permalink(); ?>" class="article-grid-permalink">
                                     <span class="tag">
                                         <?php $posttags = get_the_tags(); // получаем все теги
@@ -199,8 +238,11 @@
                                                 <span class="author-name"><?php the_author(); ?></span>
                                                 <span class="date"><?php the_time( 'j F' ); ?></span>
                                                 <div class="comments">
-                                                    <img src="<?php echo get_template_directory_uri() . './assets/images/comment-white.svg' ?>"
-                                                        alt="icon: comment" class="comments-icon">
+                                                    <!-- <img src="<?php //echo get_template_directory_uri() . './assets/images/comment-white.svg' ?>"
+                                                        alt="icon: comment" class="comments-icon"> -->
+                                                    <svg width="13.5" height="13.5" class="icon comments-icon-white">
+                                                        <use xlink:href="<?php echo get_template_directory_uri()?>/assets/images/sprite.svg#comment"></use>
+                                                    </svg>
                                                     <span class="comments-counter"><?php comments_number('0', '1', '%'); ?></span>
                                                 </div>
                                                 <div class="likes">
@@ -220,7 +262,16 @@
                             ?>
                             <li class="article-grid-item article-grid-item-3">
                                 <a href="<?php the_permalink(); ?>" class="article-grid-permalink">
-                                    <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="" class="article-thumb">       
+                                    <!-- <img src="<?php //echo get_the_post_thumbnail_url(); ?>" alt="" class="article-thumb">        -->
+                                    <img class="article-thumb" src="
+                                    <?php //должно находится внутри цикла
+                                    if( has_post_thumbnail() ) {
+                                        echo get_the_post_thumbnail_url();
+                                    }
+                                    else {
+                                        echo get_template_directory_uri().'/assets/images/img-default.png';
+                                    }
+                                    ?>" alt="">
                                     <h4 class="article-grid-title"><?php echo mb_strimwidth(get_the_title(), 0, 40, '...'); ?></h4>
                                 </a>
                             </li>
@@ -300,7 +351,15 @@
                     ?>
                     <!-- выводим записи -->
                     <li class="bookmark-item">
-                        <img class="bookmark-thumbnail" src="<?php echo get_the_post_thumbnail_url() ?>" alt="">
+                        <img class="bookmark-thumbnail" src="
+                        <?php //должно находится внутри цикла
+                        if( has_post_thumbnail() ) {
+                            echo get_the_post_thumbnail_url();
+                        }
+                        else {
+                            echo get_template_directory_uri().'/assets/images/img-default.png';
+                        }
+                        ?>" alt="">
                         <div class="bookmark-content">
                             <div class="bookmark-top">
                                 <?php
@@ -348,6 +407,86 @@
 
     <?php get_sidebar('main-bottom'); ?>
 
+</div>
+
+<div class="special">
+    <div class="special">
+        <div class="special-grid">
+            <?php		
+            global $post;
+            $query = new WP_Query( [  // формируем запрос в БД с помощью переменной $query
+                'posts_per_page' => 1, 
+                'category_name'  => 'photo-report',
+            ] );
+
+            if ( $query->have_posts() ) { // проверяем, есть ли посты
+                while ( $query->have_posts() ) { // пока посты есть, выводим их
+                    $query->the_post(); // получаем контент из этих постов
+                    ?>
+                    <div class="photo-report">
+                        <!-- Slider main container -->
+                        <div class="swiper-container photo-report-slider">
+                            <!-- Additional required wrapper -->
+                            <div class="swiper-wrapper">
+                                <!-- Slides -->
+                                <?php
+                                $images = get_attached_media( 'image' ); // получаем список всех загруженных картинок
+                                foreach ( $images as $image ) {
+                                    echo '<div class="swiper-slide"><img src="';
+                                    print_r( $image -> guid ); // выводим ссылки на картинки
+                                    echo '"></div>';
+                                }
+                                ?>
+                            </div>
+                            <!-- If we need pagination -->
+                            <div class="swiper-pagination"></div>
+                            <!-- If we need navigation buttons -->
+                            <!-- <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div> -->
+                            <!-- If we need scrollbar -->
+                            <!-- <div class="swiper-scrollbar"></div> -->
+                        </div>
+                        <div class="photo-report-content">
+                            <?php
+                                foreach (get_the_category() as $category) { // вместо the_category(); 
+                                    printf(
+                                        '<a href="%s" class="category-name">%s</a>',
+                                        esc_url( get_category_link( $category ) ), // esc_url() обезопасывет ссылку
+                                        esc_html( $category -> name ) // безопасность названий
+                                    );
+                                }
+                            ?>
+                            <?php $author_id = get_the_author_meta('ID'); ?>  <!-- получаем данные автора -->
+                            <a href="<?php echo get_author_posts_url($author_id); ?>" class="author">
+                                <img src="<?php echo get_avatar_url($author_id); ?>" alt="" class="author-avatar">
+                                <div class="author-bio">
+                                    <span class="author-name"><?php the_author(); ?></span>
+                                    <span class="author-rank">фотограф</span>
+                                </div>
+                            </a>
+                            <h3 class="photo-report-title"><?php the_title(); ?></h3>
+                            <a href="<?php echo get_the_permalink()?>" class="button photo-report-button">
+                                <svg width="19" height="15" class="icon photo-report-icon">
+                                    <use xlink:href="<?php echo get_template_directory_uri()?>/assets/images/sprite.svg#Images"></use>
+                                </svg>
+                                Смотреть фото
+                                <span class="photo-report-count"><?php echo count($images); ?></span>
+                            </a>
+                        </div>
+                    </div>
+                <?php
+                }
+            } else {
+                // Постов не найдено
+            }
+
+            wp_reset_postdata(); // сбрасываем $post
+            ?>
+            <div class="other-posts">
+            
+            </div>  
+        </div>    
+    </div>      
 </div>
 
 <?php get_footer(); ?>

@@ -344,7 +344,16 @@ class Recent_Post_Widget extends WP_Widget {
 				setup_postdata($post);
 				?>
 				<a href="<?php the_permalink() ?>" class="recent-post-link">
-					<img class="recent-post-thumb" src="<?php echo get_the_post_thumbnail_url( null, 'thumbnail' ); ?>" alt="">
+					<!-- <img class="recent-post-thumb" src="<?php //echo get_the_post_thumbnail_url( null, 'thumbnail' ); ?>" alt=""> -->
+					<img class="recent-post-thumb" src="
+					<?php //должно находится внутри цикла
+					if( has_post_thumbnail() ) {
+						echo get_the_post_thumbnail_url( null, 'thumbnail' );
+					}
+					else {
+						echo get_template_directory_uri().'/assets/images/img-default.png';
+					}
+					?>" alt="">
 					<div class="widget-recent-post-info">
 						<h4 class="recent-post-title"><?php echo mb_strimwidth(get_the_title(), 0, 30, '...'); ?></h4>
 						<span class="recent-post-time">

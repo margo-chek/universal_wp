@@ -88,10 +88,13 @@ add_filter( 'widget_tag_cloud_args', 'edit_widget_tag_cloud_args' );
 function enqueue_universal_style() {
 	wp_enqueue_style('Roboto-Slab', '//fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
     // подключаем шрифт из https://fonts.google.com
-    wp_enqueue_style( 'style', get_stylesheet_uri() );
-    wp_enqueue_style( 'universal-theme-style', get_template_directory_uri() . '/assets/css/universal-theme.css' , 'style', time());
+	wp_enqueue_style( 'style', get_stylesheet_uri() );
+	wp_enqueue_style( 'swiper-slider', get_template_directory_uri() . '/assets/css/swiper-bundle.min.css' , 'style', time());
+	wp_enqueue_style( 'universal-theme-style', get_template_directory_uri() . '/assets/css/universal-theme.css' , 'style', time());
     // выполнить universal-theme.css сразу ПОСЛЕ style.css
-    // time() - чтобы не кешировались стили  
+	// time() - чтобы не кешировались стили  
+	wp_enqueue_script( 'swiper', get_template_directory_uri() . '/assets/js/swiper-bundle.min.js', null, time(), true);
+	wp_enqueue_script( 'scripts', get_template_directory_uri() . '/assets/js/scripts.js', 'swiper', time(), true); /* зависит от swiper */
 }
 add_action( 'wp_enqueue_scripts', 'enqueue_universal_style' ); // хук
 
