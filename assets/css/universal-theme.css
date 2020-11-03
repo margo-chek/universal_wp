@@ -769,6 +769,7 @@ body {
   margin: 30px 0 0 30px;
   max-width: 263px;
   height: 100%;
+  border-radius: 10px;
 }
 
 .sidebar-front-page-bottom {
@@ -908,6 +909,26 @@ body {
   margin-top: auto;
 }
 
+.widget-recent-post-button {
+  font-family: "Lato Black", sans-serif;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 20px;
+  color: #262D33;
+  text-decoration: none;
+  cursor: pointer;
+  padding-top: 11px;
+  padding-bottom: 17px;
+  display: flex;
+  justify-content: center;
+  margin: -38px auto 0;
+  border-top: 1px solid #D9DADB;
+}
+
+.widget-recent-post-button:visited {
+  color: #262D33;
+}
+
 .widget .tagcloud {
   display: flex;
   align-items: center;
@@ -980,6 +1001,21 @@ body {
 
 .instagram {
   background: url("../images/instagram.png") no-repeat center;
+}
+
+#recent_post_widget-2 > h2 {
+  font-family: "Lato Black", sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #262D33;
+}
+
+#recent_post_widget-2 > h2:visited {
+  color: #262D33;
 }
 
 .investigation {

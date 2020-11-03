@@ -377,7 +377,7 @@
                                 </a>
                             </div>
                             <h4 class="bookmark-title"><?php trim_title_chars(56, '...'); ?></h4>
-                            <p class="bookmark-excerpt"><?php echo mb_strimwidth (get_the_excerpt(), 0, 120, '...'); ?></p>
+                            <p class="bookmark-excerpt"><?php echo mb_strimwidth (get_the_excerpt(), 0, 200, '...'); ?></p>
                             <div class="bookmark-info">
                                 <span class="date"><?php the_time( 'j F' ); ?></span>
                                 <div class="comments">
