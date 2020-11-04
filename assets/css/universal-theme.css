@@ -901,8 +901,6 @@ body {
 
 .widget-recent-post span {
   font-family: "Lato Regular", sans-serif;
-  font-style: normal;
-  font-weight: normal;
   font-size: 12px;
   line-height: 15px;
   color: #939699;
@@ -911,7 +909,6 @@ body {
 
 .widget-recent-post-button {
   font-family: "Lato Black", sans-serif;
-  font-style: normal;
   font-size: 14px;
   line-height: 20px;
   color: #262D33;
@@ -1527,4 +1524,80 @@ body > div.special > div > div.other-posts > div.other-posts-career > section > 
   list-style: none;
   text-decoration: none;
   text-transform: uppercase;
+}
+
+.footer {
+  backgroung-color: #fff;
+  padding: 60px 0 55px;
+}
+
+.footer-menu {
+  border-top: 3px solid blue;
+  flex-basis: 100%;
+  padding-right: 20px;
+}
+
+.footer-menu:nth-child(1) {
+  border-top: 3px solid #FF4F52;
+}
+
+.footer-menu:nth-child(2) {
+  border-top: 3px solid #AC8EE3;
+}
+
+.footer-menu:nth-child(3) {
+  border-top: 3px solid #4592FF;
+}
+
+.footer-menu:nth-child(4) {
+  border-top: 3px solid #FFA34D;
+}
+
+.footer-menu:nth-child(5) {
+  border-top: 3px solid #3DC47E;
+}
+
+.footer-menu:nth-child(6) {
+  border-top: 3px solid #6E99AE;
+}
+
+.footer-menu-title {
+  font-family: "Lato Black", sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: start;
+  margin: 35px 0 25px;
+  color: #262D33;
+}
+
+.footer-menu-bar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.footer-menu .menu, .footer-menu ul {
+  list-style: none;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-menu .menu:visited, .footer-menu ul:visited {
+  color: #262D33;
+}
+
+.footer-menu .menu a, .footer-menu ul a {
+  display: inline-block;
+  font-family: "Lato Regular", sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: start;
+  margin: 0 0 15px;
+  text-decoration: none;
+  color: #4B5157;
+}
+
+.footer-menu .menu a:visited, .footer-menu ul a:visited {
+  color: #4B5157;
 }

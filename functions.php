@@ -23,7 +23,11 @@ if ( ! function_exists( 'universal_theme_setup' ) ) :
 
         // регистрация меню
         register_nav_menus( [ // создает дырки под меню на сайте
-            'header_menu' => 'Меню в шапке',
+			'header_menu' => 'Меню в шапке',
+			'news_menu' => 'Меню новости в шапке',
+			'video_lessons_menu' => 'Меню видеоуроки в шапке',
+			'courses_menu' => 'Меню курсы в шапке',
+			'info_menu' => 'Меню информация в шапке',
             'footer_menu' => 'Меню в подвале'
         ] );
     }
@@ -66,6 +70,17 @@ function universal_theme_widgets_init() {
 			'before_widget' => '<section id="%1$s" class="widget %2$s bottom">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title %2$s">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Меню в подвале', 'universal-theme' ),
+			'id'            => 'sidebar-footer',
+			'description'   => esc_html__( 'Добавьте меню сюда', 'universal-theme' ),
+			'before_widget' => '<section id="%1$s" class="footer-menu %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="footer-menu-title">',
 			'after_title'   => '</h2>',
 		)
 	);
