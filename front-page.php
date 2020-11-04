@@ -410,7 +410,7 @@
 </div>
 
 <div class="special">
-    <div class="special">
+    <div class="container">    
         <div class="special-grid">
             <?php		
             global $post;
@@ -479,14 +479,73 @@
             } else {
                 // Постов не найдено
             }
-
             wp_reset_postdata(); // сбрасываем $post
             ?>
+
             <div class="other-posts">
-            
+                <div class="other-posts-career">
+                    <?php
+                        $args = array( // задаем нужные нам критерии выборки данных из БД
+                            'posts_per_page' => 1,
+                            'category_name' => 'career'
+                        );
+                        $query = new WP_Query( $args );
+                        // Цикл
+                        if ( $query->have_posts() ) {
+                            // while ( $query->have_posts() ) {
+                                $query->the_post();
+                                ?>
+                                <section class="other-posts-career-card">
+                                    <?php the_category(); ?>
+                                    <h2 class="other-posts-career-title"><?php the_title(); ?></h2>
+                                    <p class="other-posts-career-excerpt"><?php echo mb_strimwidth (get_the_excerpt(), 0, 84, '...'); ?></p>
+                                    <a href="<?php echo get_the_permalink()?>" class="other-posts-career-more">
+                                        Читать статью
+                                        <svg width="15" height="7" class="icon other-posts-career-icon">
+                                            <use xlink:href="<?php echo get_template_directory_uri()?>/assets/images/sprite.svg#arrow"></use>
+                                        </svg>
+                                    </a>
+                                </section>
+                                <?php
+                            // }
+                        } else {
+                            // Постов не найдено
+                        }
+                        // Возвращаем оригинальные данные поста. Сбрасываем $post.
+                        wp_reset_postdata();
+                    ?>
+                </div>
+                <div class="other-posts-bottom">
+                    <?php
+                        $args = array( // задаем нужные нам критерии выборки данных из БД
+                            'posts_per_page' => 2,
+                            'category_name' => 'work'
+                        );
+                        $query = new WP_Query( $args );
+                        // Цикл
+                        if ( $query->have_posts() ) {
+                            while ( $query->have_posts() ) {
+                                $query->the_post();
+                                ?>
+                                <li class="other-posts-bottom-item">
+                                    <a href="<?php the_permalink(); ?>" class="other-posts-bottom-permalink">   
+                                        <h4 class="other-posts-bottom-title"><?php echo the_title();?></h4>
+                                        <p class="other-posts-bottom-excerpt"><?php echo mb_strimwidth (get_the_excerpt(), 0, 80, '...'); ?></p>
+                                        <span class="other-posts-bottom-date"><?php the_time( 'j F' ); ?></span>
+                                    </a>
+                                </li>
+                                <?php 
+                            }
+                        } else {
+                            // Постов не найдено
+                        }
+                        // Возвращаем оригинальные данные поста. Сбрасываем $post.
+                        wp_reset_postdata();
+                    ?>
+                </div>
             </div>  
-        </div>    
-    </div>      
+        </div>         
+    </div>
 </div>
 
 <?php get_footer(); ?>

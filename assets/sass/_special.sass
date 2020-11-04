@@ -73,8 +73,6 @@
         background: #3DC47E
         border-radius: 3px
         font-family: "Lato Regular", sans-serif
-        font-style: normal
-        font-weight: normal
         font-size: 12px
         line-height: 15px
         color: #FFFFFF
@@ -86,11 +84,10 @@
         top: 18px
     .author
         text-align: center
+        text-decoration: none
         &-name
             display: block
             font-family: "Lato Regular", sans-serif
-            font-style: normal
-            font-weight: normal
             font-size: 14px
             line-height: 20px
             color: #FFFFFF
@@ -99,8 +96,6 @@
             text-decoration: none
         &-rank
             font-family: "Lato Regular", sans-serif
-            font-style: normal
-            font-weight: normal
             font-size: 12px
             line-height: 15px
             color: #FFFFFF
@@ -116,4 +111,144 @@
 .other-posts
     min-height: 570px
     width: 49%
-    border: 1px solid red
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    align-items: flex-start
+    list-style: none
+    text-decoration: none
+    &-career
+        display: flex
+        align-items: flex-start
+        margin-bottom: 30px
+        border-radius: 10px
+        width: 100%
+        &-card
+            width: 100%
+            border-radius: 10px
+            background-color: #B4D1E0
+            background-image: url(../images/career-group.png)
+            background-repeat: no-repeat
+            background-position: right center
+            background-size: cover
+            display: flex
+            flex-direction: column
+            justify-content: space-between
+            align-items: flex-start
+            margin: 0 auto
+            padding: 35px 0 48px 35px
+        & > section
+            & > ul
+                list-style: none
+                margin-left: 0
+                padding-left: 0
+                & > li
+                    text-decoration: none
+                    & > a
+                        font-family: "Lato Black"
+                        font-size: 12px
+                        line-height: 15px
+                        letter-spacing: 0.5px
+                        text-transform: uppercase
+                        text-decoration: none
+                        list-style: none
+                        color: #6E99AE
+                        &:hover
+                            text-decoration: none
+                            color: #6E99AE
+                        &:visited
+                            color: #6E99AE
+        &-title
+            font-family: "Roboto Slab"
+            font-style: normal
+            font-weight: bold
+            font-size: 25px
+            line-height: 30px
+            text-decoration: none
+            color: #262D33
+            width: 42%
+            margin-bottom: 0
+            &:visited
+                color: #262D33
+        &-excerpt
+            font-family: "Lato Regular", sans-serif
+            font-size: 14px
+            line-height: 20px
+            text-decoration: none
+            color: #4B5157
+            width: 42%
+            margin-bottom: 42px
+            &:visited
+                color: #4B5157
+        &-more
+            display: inline-block
+            color: #FFFFFF
+            padding: 10px 20px
+            border-radius: 20px
+            background-color: #4592FF
+            text-decoration: none
+            cursor: pointer
+            margin: 2px
+            &:visited, &:focuc, &:hover
+                color: #FFFFFF !important
+        &-icon
+            fill: #ffffff
+            margin-left: 8px
+    &-bottom
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        list-style: none
+        width: 100%
+        &-permalink
+            text-decoration: none
+            color: #262D33
+            height: 100%
+            &:hover
+                color: #262D33
+        &-item
+            border-radius: 10px
+            background: #fff
+            overflow: hidden
+            padding: 25px 25px 30px
+            display: flex
+            flex-direction: column
+            justify-content: space-between
+            &:not(:last-child)
+                margin-right: 30px
+        &-title
+            font-family: "Roboto Slab"
+            font-style: normal
+            font-weight: bold
+            font-size: 16px
+            line-height: 25px
+            text-decoration: none
+            margin: 0
+            white-space: nowrap
+            overflow: hidden
+            text-overflow: ellipsis
+            color: #262D33
+            &:visited
+                color: #262D33
+        &-excerpt
+            font-family: "Lato Regular", sans-serif
+            font-size: 14px
+            line-height: 20px
+            text-decoration: none
+            margin: 5px 0 10px
+            color: #4B5157
+            &:visited
+                color: #4B5157
+        &-date
+            font-family: "Lato Regular", sans-serif
+            font-size: 12px
+            line-height: 15px
+            text-decoration: none
+            color: #939699
+            &:visited
+                color: #939699
+body > div.special > div > div.other-posts > div.other-posts-career > section > ul > li > a,
+body > div.special > div > div.other-posts > div.other-posts-career > section > ul > li
+    list-style: none
+    text-decoration: none
+    text-transform: uppercase

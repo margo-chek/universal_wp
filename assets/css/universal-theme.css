@@ -1287,8 +1287,6 @@ a.bookmark-permalink:visited {
   background: #3DC47E;
   border-radius: 3px;
   font-family: "Lato Regular", sans-serif;
-  font-style: normal;
-  font-weight: normal;
   font-size: 12px;
   line-height: 15px;
   color: #FFFFFF;
@@ -1302,13 +1300,12 @@ a.bookmark-permalink:visited {
 
 .photo-report .author {
   text-align: center;
+  text-decoration: none;
 }
 
 .photo-report .author-name {
   display: block;
   font-family: "Lato Regular", sans-serif;
-  font-style: normal;
-  font-weight: normal;
   font-size: 14px;
   line-height: 20px;
   color: #FFFFFF;
@@ -1319,8 +1316,6 @@ a.bookmark-permalink:visited {
 
 .photo-report .author-rank {
   font-family: "Lato Regular", sans-serif;
-  font-style: normal;
-  font-weight: normal;
   font-size: 12px;
   line-height: 15px;
   color: #FFFFFF;
@@ -1340,5 +1335,196 @@ a.bookmark-permalink:visited {
 .other-posts {
   min-height: 570px;
   width: 49%;
-  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  list-style: none;
+  text-decoration: none;
+}
+
+.other-posts-career {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.other-posts-career-card {
+  width: 100%;
+  border-radius: 10px;
+  background-color: #B4D1E0;
+  background-image: url(../images/career-group.png);
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 0 auto;
+  padding: 35px 0 48px 35px;
+}
+
+.other-posts-career > section > ul {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.other-posts-career > section > ul > li {
+  text-decoration: none;
+}
+
+.other-posts-career > section > ul > li > a {
+  font-family: "Lato Black";
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  list-style: none;
+  color: #6E99AE;
+}
+
+.other-posts-career > section > ul > li > a:hover {
+  text-decoration: none;
+  color: #6E99AE;
+}
+
+.other-posts-career > section > ul > li > a:visited {
+  color: #6E99AE;
+}
+
+.other-posts-career-title {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 25px;
+  line-height: 30px;
+  text-decoration: none;
+  color: #262D33;
+  width: 42%;
+  margin-bottom: 0;
+}
+
+.other-posts-career-title:visited {
+  color: #262D33;
+}
+
+.other-posts-career-excerpt {
+  font-family: "Lato Regular", sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  text-decoration: none;
+  color: #4B5157;
+  width: 42%;
+  margin-bottom: 42px;
+}
+
+.other-posts-career-excerpt:visited {
+  color: #4B5157;
+}
+
+.other-posts-career-more {
+  display: inline-block;
+  color: #FFFFFF;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background-color: #4592FF;
+  text-decoration: none;
+  cursor: pointer;
+  margin: 2px;
+}
+
+.other-posts-career-more:visited, .other-posts-career-more:focuc, .other-posts-career-more:hover {
+  color: #FFFFFF !important;
+}
+
+.other-posts-career-icon {
+  fill: #ffffff;
+  margin-left: 8px;
+}
+
+.other-posts-bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  list-style: none;
+  width: 100%;
+}
+
+.other-posts-bottom-permalink {
+  text-decoration: none;
+  color: #262D33;
+  height: 100%;
+}
+
+.other-posts-bottom-permalink:hover {
+  color: #262D33;
+}
+
+.other-posts-bottom-item {
+  border-radius: 10px;
+  background: #fff;
+  overflow: hidden;
+  padding: 25px 25px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.other-posts-bottom-item:not(:last-child) {
+  margin-right: 30px;
+}
+
+.other-posts-bottom-title {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 25px;
+  text-decoration: none;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #262D33;
+}
+
+.other-posts-bottom-title:visited {
+  color: #262D33;
+}
+
+.other-posts-bottom-excerpt {
+  font-family: "Lato Regular", sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  text-decoration: none;
+  margin: 5px 0 10px;
+  color: #4B5157;
+}
+
+.other-posts-bottom-excerpt:visited {
+  color: #4B5157;
+}
+
+.other-posts-bottom-date {
+  font-family: "Lato Regular", sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  text-decoration: none;
+  color: #939699;
+}
+
+.other-posts-bottom-date:visited {
+  color: #939699;
+}
+
+body > div.special > div > div.other-posts > div.other-posts-career > section > ul > li > a,
+body > div.special > div > div.other-posts > div.other-posts-career > section > ul > li {
+  list-style: none;
+  text-decoration: none;
+  text-transform: uppercase;
 }
