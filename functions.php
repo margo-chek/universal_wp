@@ -34,58 +34,7 @@ if ( ! function_exists( 'universal_theme_setup' ) ) :
 endif; // проверка закончена
 add_action( 'after_setup_theme', 'universal_theme_setup' ); //сразу при загрузке страницы / после инициализации темы - подключаемся к хук-событию after_setup_theme и как только оно сработает, запустится функция universal_theme_setup
 
-/**
- * подключение сайдбара
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
- */
-function universal_theme_widgets_init() {
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Сайдбар справа на главной', 'universal-theme' ),
-			'id'            => 'sidebar-main',
-			'description'   => esc_html__( 'Добавьте виджеты сюда', 'universal-theme' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Сайдбар свежих постов', 'universal-theme' ),
-			'id'            => 'sidebar-post',
-			'description'   => esc_html__( 'Добавьте последние посты сюда', 'universal-theme' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Сайдбар на главной снизу', 'universal-theme' ),
-			'id'            => 'sidebar-main-bottom',
-			'description'   => esc_html__( 'Добавьте последние посты сюда', 'universal-theme' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s bottom">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title %2$s">',
-			'after_title'   => '</h2>',
-		)
-	);
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Меню в подвале', 'universal-theme' ),
-			'id'            => 'sidebar-footer',
-			'description'   => esc_html__( 'Добавьте меню сюда', 'universal-theme' ),
-			'before_widget' => '<section id="%1$s" class="footer-menu %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="footer-menu-title">',
-			'after_title'   => '</h2>',
-		)
-	);
-}
-add_action( 'widgets_init', 'universal_theme_widgets_init' );
+require_once  "inc/functions-sidebar.php";
 
 require_once  "inc/functions-widget.php";
 

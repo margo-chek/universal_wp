@@ -178,7 +178,7 @@ class Social_Icons_Widget extends WP_Widget {
         if ( ! empty ( $link_youtube )) {
 			echo '<a href=' . $link_youtube . ' class="social-network-button youtube"></a>';
 		}
-		 if ( ! empty ( $link_instagram )) {
+		if ( ! empty ( $link_instagram )) {
 			echo '<a href=' . $link_instagram . ' class="social-network-button instagram"></a>';
 		}
 		// echo '</div>';
