@@ -181,7 +181,7 @@ class Social_Icons_Widget extends WP_Widget {
 		if ( ! empty ( $link_instagram )) {
 			echo '<a href=' . $link_instagram . ' class="social-network-button instagram"></a>';
 		}
-		// echo '</div>';
+		echo '</div>';
         echo $args['after_widget'];
 	}
 
@@ -369,6 +369,7 @@ class Recent_Post_Widget extends WP_Widget {
 		}
 		
 		echo $args['after_widget'];
+		echo '<a href="#" class="widget-recent-post-button">Read more</a>';
 	}
 
 	/**
