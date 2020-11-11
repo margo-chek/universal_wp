@@ -17,3 +17,9 @@ var mySwiper = new Swiper('.swiper-container', {
 //     prevEl: '.swiper-button-prev',
 //   },
 })
+
+let menuToggle = $('.header-menu-toggle');
+menuToggle.on('click', function(event) {
+  event.preventDefault();
+  $('.header-nav').slideToggle(200);
+})

@@ -27,8 +27,13 @@
                     'menu_class'      => 'header-menu', 
                     'echo'            => true, // выводить ли меню
                 ] );
-            ?>
-            <?php get_search_form(); ?>
+
+            get_search_form(); ?>
+            <a href="#" class="header-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
         </div>
     </div>
 </header>

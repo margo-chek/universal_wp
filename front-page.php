@@ -193,7 +193,7 @@
                                         <div class="author">
                                             <?php $author_id = get_the_author_meta('ID'); ?>  <!-- получаем данные автора -->
                                             <img src="<?php echo get_avatar_url($author_id); ?>" alt="" class="author-avatar">
-                                            <span class="author-name"><strong><?php the_author(); ?></strong> : <?php the_author_meta( 'description' ) ?></span>
+                                            <span class="author-name"><strong class="author-name-self"><?php the_author(); ?></strong> : <?php the_author_meta( 'description' ) ?></span>
                                         </div>
                                         <div class="comments">
                                             <svg width="13.5" height="13.5" class="icon comments-icon-grey">

@@ -1,6 +1,6 @@
 .special
     background-color: #262D33
-    padding: 60px 113px
+    padding: 60px 0
     margin: 0 auto
     &-grid
         display: flex
@@ -158,6 +158,10 @@
                             color: #6E99AE
                         &:visited
                             color: #6E99AE
+            & > a
+                color: #fff
+                &:visited
+                    color: #fff
         &-title
             font-family: "Roboto Slab"
             font-style: normal
@@ -252,3 +256,41 @@ body > div.special > div > div.other-posts > div.other-posts-career > section > 
     list-style: none
     text-decoration: none
     text-transform: uppercase
+@media screen and ( max-width: 1024px )
+    .special
+        &-grid
+            flex-direction: column
+    .photo-report
+        width: 100%
+        margin-bottom: 30px
+    .other-posts
+        width: 100%
+@media screen and ( max-width: 1024px )
+    .photo-report
+        width: 100%
+        margin-bottom: 30px
+@media screen and ( max-width: 560px )
+    .other-posts
+        &-career
+            &-card
+                background-image: none
+                padding: 35px 35px 40px
+            &-title
+                width: 100%
+            &-excerpt
+                width: 100%
+                margin-bottom: 32px
+        &-bottom
+            flex-direction: column
+            &-item
+                &:not(:last-child)
+                    margin-right: 0
+                    margin-bottom: 20px
+@media screen and ( max-width: 360px )
+    .photo-report
+        &-title
+            font-size: 32px
+            line-height: 46px
+        .author
+            margin-top: 36px
+            margin-bottom: -20px

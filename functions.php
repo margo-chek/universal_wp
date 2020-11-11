@@ -56,7 +56,10 @@ function enqueue_universal_style() {
 	wp_enqueue_style( 'swiper-slider', get_template_directory_uri() . '/assets/css/swiper-bundle.min.css' , 'style');
 	wp_enqueue_style( 'universal-theme-style', get_template_directory_uri() . '/assets/css/universal-theme.css' , 'style', time());
     // выполнить universal-theme.css сразу ПОСЛЕ style.css
-	// time() - чтобы не кешировались стили  
+	// time() - чтобы не кешировались стили 
+	wp_deregister_script( 'jquery-core' );
+	wp_register_script( 'jquery-core', '//code.jquery.com/jquery-3.5.1.min.js');
+	wp_enqueue_script( 'jquery' ); 
 	wp_enqueue_script( 'swiper', get_template_directory_uri() . '/assets/js/swiper-bundle.min.js', null, '',true);
 	wp_enqueue_script( 'scripts', get_template_directory_uri() . '/assets/js/scripts.js', 'swiper', time(), true); /* зависит от swiper */
 }
