@@ -1446,12 +1446,6 @@ a.bookmark-permalink:visited {
   }
 }
 
-@media screen and (max-width: 1024px) {
-  .bookmark-content {
-    max-width: 90%;
-  }
-}
-
 @media screen and (max-width: 960px) {
   .container-main-top {
     justify-content: center;
@@ -2068,5 +2062,11 @@ body > div.special > div > div.other-posts > div.other-posts-career > section > 
   }
   .footer-nav {
     flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 359px) {
+  .footer-menu {
+    flex-basis: 100%;
   }
 }
