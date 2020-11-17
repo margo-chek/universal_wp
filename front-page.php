@@ -381,13 +381,18 @@
                             <div class="bookmark-info">
                                 <span class="date"><?php the_time( 'j F' ); ?></span>
                                 <div class="comments">
-                                    <img src="<?php echo get_template_directory_uri() . './assets/images/comment.svg' ?>"
-                                        alt="icon: comment" class="comments-icon">
+                                    <!-- <img src="<?php //echo get_template_directory_uri() . './assets/images/comment-white.svg' ?>"
+                                        alt="icon: comment" class="comments-icon"> -->
+                                    <svg width="13.5" height="13.5" fill="#939699" class="comments-icon">
+                                        <use xlink:href="<?php echo get_template_directory_uri()?>/assets/images/sprite.svg#comment"></use>
+                                    </svg>
                                     <span class="comments-counter"><?php comments_number('0', '1', '%'); ?></span>
                                 </div>
                                 <div class="likes">
-                                    <img src="<?php echo get_template_directory_uri() . './assets/images/heart.svg' ?>"
-                                        alt="icon: like" class="likes-icon">
+                                    <!-- <img src="<?php //echo get_template_directory_uri() . './assets/images/heart.svg' ?>" alt="icon: like" class="likes-icon"> -->
+                                    <svg width="12.75" height="11.7" fill="#939699" class="likes-icon">
+                                        <use xlink:href="<?php echo get_template_directory_uri()?>/assets/images/sprite.svg#heart"></use>
+                                    </svg>
                                     <span class="likes-counter"><?php comments_number('0', '1', '%'); ?></span>
                                 </div>
                             </div>

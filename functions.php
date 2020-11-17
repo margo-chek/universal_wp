@@ -77,6 +77,10 @@ function delete_intermediate_image_sizes( $sizes ){
 }
 add_filter( 'intermediate_image_sizes', 'delete_intermediate_image_sizes' );
 
+add_filter('excerpt_more', function($more) { // выводит "отрывок" (цитату) поста, заменяя конструкцию [...] в конце на ...
+	return '...';
+});
+
 
 require_once  "inc/functions-custom.php";
 

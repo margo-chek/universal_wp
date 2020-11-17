@@ -68,6 +68,17 @@ body {
   display: none;
 }
 
+.header-menu-post .menu-item a {
+  font-family: "Lato Black", sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: #939699;
+}
+
+.header-post {
+  background-color: #fff;
+}
+
 .menu-item a {
   text-decoration: none;
   color: #fff;
@@ -2069,4 +2080,20 @@ body > div.special > div > div.other-posts > div.other-posts-career > section > 
   .footer-menu {
     flex-basis: 100%;
   }
+}
+
+.post-header {
+  padding: 60px 0 72px;
+  color: #ffffff;
+}
+
+.post-header-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.post-header .home:any-link {
+  text-decoration: none;
+  color: #ffffff;
 }
