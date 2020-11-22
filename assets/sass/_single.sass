@@ -1,3 +1,5 @@
+.container
+    position: relative
 .post
     &-header
         padding: 60px 0 72px
@@ -26,6 +28,8 @@
                 color: #ffffff
                 font-size: 14px
                 line-height: 20px
+                &:visited
+                    color: #ffffff
             svg
                 fill: #ffffff
             .prev-icon
@@ -42,6 +46,13 @@
             opacity: 0.85
             margin-bottom: 43px
             min-width: 630px
+        &-info
+            display: flex
+            & > .clock-icon
+                margin: 3px 5px 0 0
+            & > div.comments > .comments-icon,
+            & > div.likes > .likes-icon
+                margin: 0 5px 0 20px
     &-title
         font-size: 55px
         line-height: 70px
@@ -49,4 +60,13 @@
         font-style: normal
         font-weight: bold
         max-width: 750px
-        margin: 52px auto 30px
+        margin-top: 52px
+        margin-bottom: 30px
+.home-icon
+    padding-bottom: 4px
+.bookmark-icon
+    position: absolute
+    top: 17%
+    left: -88px
+    right: 0
+    bottom: 0

@@ -24,7 +24,7 @@
                 ?>
                 <a class="home-link" href="<?php echo get_home_url(); ?>"> <!-- ссылка на Главную страницу -->
                     <svg width="18" height="17" fill="#ffffff" class="icon home-icon">
-                        <use xlink:href="<?php get_template_directory_uri(); ?>/assets/images/sprite.svg#Home"></use>
+                        <use xlink:href="<?php echo get_template_directory_uri()?>/assets/images/sprite.svg#Home"></use>
                     </svg>
                     На главную
                 </a>
@@ -51,10 +51,18 @@
             else : // если мы на любой другой странице, кроме поста
                 the_title( '<h2 class="post-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
             endif;
+            ?>
+            <svg width="21" height="27" fill="#939699" class="bookmark-icon">
+                <use xlink:href="<?php echo get_template_directory_uri()?>/assets/images/sprite.svg#bookmark"></use>
+            </svg>
+            <?php
             the_excerpt();
             ?>
             <div class="post-header-info">
-                <span class="date"><?php the_time( 'j F' ); ?></span>
+                <svg width="13.5" height="13.5" fill="#939699" class="clock-icon">
+                    <use xlink:href="<?php echo get_template_directory_uri()?>/assets/images/sprite.svg#Clock"></use>
+                </svg>
+                <span class="date"><?php the_time( 'j F, G:i' ); ?></span>
                 <div class="comments">
                     <!-- <img src="<?php //echo get_template_directory_uri() . './assets/images/comment-white.svg' ?>"
                         alt="icon: comment" class="comments-icon"> -->
