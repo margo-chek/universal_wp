@@ -81,41 +81,42 @@
             </div>
         </div>
 	</header><!-- .entry-header -->
+    <div class="container"> 
+        <div class="post-content"> <!-- содержимое поста -->
+            <?php
+            the_content(
+                sprintf( // с помощью sprintf выводим это на экране
+                    wp_kses( // проверка, wp_kses очищает от лишнего
+                        /* translators: %s: Name of current post. Only visible to screen readers */
+                        __( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'universal-theme' ),
+                        array(
+                            'span' => array(
+                                'class' => array(),
+                            ),
+                        )
+                    ),
+                    wp_kses_post( get_the_title() )
+                )
+            );
 
-	<div class="entry-content"> <!-- содержимое поста -->
-		<?php
-		the_content(
-			sprintf( // с помощью sprintf выводим это на экране
-				wp_kses( // проверка, wp_kses очищает от лишнего
-					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'universal-theme' ),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
-				),
-				wp_kses_post( get_the_title() )
-			)
-		);
+            wp_link_pages( // обертка для постраничной навигации - если пост на нескольких страницах
+                array(
+                    'before' => '<div class="page-links">' . esc_html__( 'Страницы:', 'universal-theme' ),
+                    'after'  => '</div>',
+                )
+            );
+            ?>
+        </div><!-- .post-content -->
+        <footer class="post-footer">
+            <?php
+            /* translators: used between list items, there is a space after the comma */
+                $tags_list = get_the_tag_list( '', esc_html_x( '', 'list item separator', 'universal-theme' ) );
+                if ( $tags_list ) {
+                    /* translators: 1: list of tags. */
+                    printf( '<span class="tags-links">' . esc_html__( '%1$s', 'universal-theme' ) . '</span>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                }
+            ?>
+        </footer><!-- .post-footer -->
+    </div>
 
-		wp_link_pages( // обертка для постраничной навигации - если пост на нескольких страницах
-			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Страницы:', 'universal-theme' ),
-				'after'  => '</div>',
-			)
-		);
-		?>
-	</div><!-- .entry-content -->
-
-	<footer class="entry-footer">
-        <?php
-		/* translators: used between list items, there is a space after the comma */
-			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'universal-theme' ) );
-			if ( $tags_list ) {
-				/* translators: 1: list of tags. */
-				printf( '<span class="tags-links">' . esc_html__( '%1$s', 'universal-theme' ) . '</span>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-            }
-        ?>
-	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

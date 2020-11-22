@@ -46,6 +46,7 @@
             opacity: 0.85
             margin-bottom: 43px
             min-width: 630px
+            max-width: 623px
         &-info
             display: flex
             & > .clock-icon
@@ -62,11 +63,102 @@
         max-width: 750px
         margin-top: 52px
         margin-bottom: 30px
+    &-content
+        max-width: 623px
+        padding-top: 60px
+        p
+            font-family: "Lato Regular", sans-serif
+            font-size: 18px
+            line-height: 30px
+            color: #4B5157
+            margin: 30px 0
+        .has-drop-cap
+            &:not(:focus)
+                &:first-letter
+                    font-family: "Lato Black", sans-serif
+                    font-size: 100px
+                    line-height: 75px
+                    color: #4592FF
+        h1, h2, h3, h4, h5, h6
+            font-family: "Roboto Slab"
+            font-style: normal
+            font-weight: bold
+            line-height: 30px
+            color: #262D33
+        h1
+            font-size: 30px
+        h2
+            font-size: 25px
+        h3
+            font-size: 22px
+        h4
+            font-size: 18px
+        h5
+            font-size: 16px
+        h6
+            font-size: 14px
+        ul, ol
+            margin-left: 20px
+            margin-top: 20px
+            padding: 0
+            font-family: "Lato Regular", sans-serif
+            font-size: 18px
+            line-height: 30px
+            color: #4B5157
+        blockquote
+            font-family: "Roboto Slab"
+            font-style: normal
+            font-weight: bold
+            font-size: 25px
+            line-height: 30px
+            color: #262D33
+            margin-left: 0
+            position: relative
+            margin-top: 80px
+            margin-bottom: 45px
+            &::before
+                position: absolute
+                top: -20px
+                left: -20px
+                content: ''
+                background-image: url(../images/quote.svg)
+                background-repeat: no-repeat
+                background-size: 100%
+                background-position: center
+                width: 70px
+                height: 70px
+                z-index: -1
+            cite
+                font-style: normal
+        pre
+            background: #ffffff
+            padding: 0
+    .tags-links
+        a
+            text-decoration: none
+            font-family: "Lato Black", sans-serif
+            font-size: 14px
+            line-height: 20px
+            color: #262D33
+            padding: 5px 15px
+            border: 1px solid #D9DADB
+            border-radius: 5px
+            margin-right: 10px
+    &-button
+        margin: 20px auto
+        background: #4592FF
+        border-radius: 20px
+        color: #ffffff
+        text-decoration: none
+        cursor: pointer
+        align-items: center
+    &-footer
+        margin-top: 20px
 .home-icon
     padding-bottom: 4px
 .bookmark-icon
     position: absolute
-    top: 17%
+    top: 86px
     left: -88px
     right: 0
     bottom: 0
